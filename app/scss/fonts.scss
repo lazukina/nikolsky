@@ -1,0 +1,6 @@
+// Проверить совпадает ли название папок с шрифтами, с названием в url
+// thin - 100, extralight - 200, light - 300, regular - 400, medium - 500, semibold - 600, bold - 700, extrabold - 800, black - 900. Словами записывается только bold, regular - не пишется
+
+@include font-face ("HelveticaNeueCyr", "../fonts/HelveticaNeueCyr-Roman/HelveticaNeueCyr-Roman");
+@include font-face ("HelveticaNeueCyr", "../fonts/HelveticaNeueCyr-Bold/HelveticaNeueCyr-Bold", bold);
+@include font-face ("HelveticaNeueCyr", "../fonts/HelveticaNeueCyr-ExtraBold/HelveticaNeueCyr-Medium", 500);

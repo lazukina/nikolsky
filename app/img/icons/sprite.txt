@@ -1,0 +1,59 @@
+.sprite-@1x {
+    background-image: url(spritesheet.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.sprite-@1x-card-i-zoom-t {
+    width: 15px;
+    height: 15px;
+    background-position: -5px -5px;
+}
+
+.sprite-@1x-i-address {
+    width: 18px;
+    height: 24px;
+    background-position: -30px -5px;
+}
+
+.sprite-@1x-i-consultation {
+    width: 65px;
+    height: 70px;
+    background-position: -58px -5px;
+}
+
+.sprite-@1x-i-discount {
+    width: 70px;
+    height: 70px;
+    background-position: -133px -5px;
+}
+
+.sprite-@1x-i-eco {
+    width: 70px;
+    height: 68px;
+    background-position: -213px -5px;
+}
+
+.sprite-@1x-i-phone {
+    width: 16px;
+    height: 24px;
+    background-position: -293px -5px;
+}
+
+.sprite-@1x-i-quality {
+    width: 70px;
+    height: 63px;
+    background-position: -319px -5px;
+}
+
+.sprite-@1x-index-i-arrow {
+    width: 13px;
+    height: 10px;
+    background-position: -399px -5px;
+}
+
+.sprite-@1x-index-i-telephone-m {
+    width: 27px;
+    height: 27px;
+    background-position: -422px -5px;
+}

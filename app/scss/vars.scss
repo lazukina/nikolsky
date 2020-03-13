@@ -1,0 +1,127 @@
+// reset (скорее полное отключение) фокуса кнопок у firefox
+// кастомный фокус в firefox добавить очень сложно в отличие от Chrome
+// *:focus {
+//   outline:none !important;
+// }
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// BREAKPOINTS - желательно не менять, но вдруг
+$grid-gutter-width: 20px;
+$grid-colums: 12;
+$grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px);
+$container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1140px);
+$gutter: $grid-gutter-width;
+
+// PALETTE
+// lighten, darken, low&high=saturation, op=opacity.
+// shortcut "cr" => color: rgba(text-color, .5);
+// Ex $black-op: rgba($black, .3);
+$bland: #b6a89b;
+$black-two: #282828;
+$sick-green: #95cf2e;
+$white: #ffffff;
+$sickly-yellow: #c7df25;
+$apple: #78c533;
+$white-two: #f8f6f4;
+$grey: #99938c;
+$sick-green-two: #9cd12c;
+$black-three: #131313;
+$black-four: #313131;
+$light-grey: #eee8e2;
+$light-grey-two: #e3dfda;
+$black: #000000;
+$white-three: #f5f5f5;
+$brownish-grey: #6b6761;
+$light-grey-three: #f1ece7;
+
+// SCAFFOLDING
+$font-size-base: 13px;
+$line-height-base: em(19px);
+// Точно sans-serif? Вдруг в этот раз это не так
+$font-family-base: "HelveticaNeueCyr", Arial, sans-serif;
+// $font-family-base: "HelveticaNeueCyr-Roman", Arial, sans-serif;
+$text-color-base: $black-two;
+// Не забудь изменить на твой вариант фона
+$body-bg: $white;
+
+// FUNCTIONS
+$retina: "(min-resolution: 144dpi), (min-resolution: 1.5dppx)";
+
+// In SCSS em(размер из фотошопа с px); line-height: em(24px); font-size: em(50px);
+@function em($px, $base: $font-size-base) {
+  @return ($px / $base) * 1em;
+}
+
+// z-index
+$elements: project-overlay, modals, success;
+
+// Пример записи
+// .project-cover {
+//    z-index: index($elements, project-overlay);
+// }
+// Или если нужен другой уровень
+// .form {
+//    z-index: index($elements, modals);
+// }
+// В случае, если появится необходимость в новом значении, для нового элемента - просто дать ему имя и записать в том месте, где он должен быть на сайте (выше оверлея, но ниже pop-up aka modals). Код в таком случае будет выглядеть вот так: $elements: project-overlay, navigation, modals; И все элементы изменят z-index соответственно новому порядку. NB! Все работает только, если использовать эту функцию во всем коде. А не пытаться впихнуть в качестве последнего измения в полуготовый проект.
+
+// FONT WEIGHT
+$thin: 100;
+$extralight: 200;
+$light:300;
+$regular: 400;
+$medium: 500;
+$semibold: 600;
+$bold: 700;
+$extrabold: 800;
+$black: 900;
+
+// FONT COLOR
+$text-color-secondary: $white;
+//base, secondary, tertiary, accent, success, danger, op, functions (-address, -promo, etc);
+
+// BACKGROUND
+// $brand-default: rgba($blue, .5);
+// primary, primary-contrast, info, success, warning, danger, op, functions (-address, -promo, etc);
+
+//FORM
+// input, radio, checkbox, border;
+// default, hover, focus, warning, text, icon,
+// Ex: $form-input-border-hover: 2px solid $blue__casper;
+// Ex: $form-radio-text-default: $text-color-tertiary;
+// EX: $form-radio-icon-default: rgba($text-color-tertiary, 0.4);
+
+// BTN
+// Базовые: bg*, text-color, font-weight, border
+// Действие**: bg-hover, text-color-hover, bg-text-color;
+// Функция: form, slider, buy, page etc.
+// Состояния: default, primary, info, success, warning, danger, disabled
+// Версии вьюпорта: m, t, d;
+// *bg - часто будет прозрачным не забывай задавать transparent в таком случае
+// **Часто бывает вариацией уже известного цвета с opacity или rgba()
+// Ex: $btn-form-default-hover-bg-m
+// Дефолтная кнопка
+$btn-bg-default: $white;
+$btn-bg-hover: $black;
+$btn-bg-active: $black;
+$btn-text-color-default: $white;
+$btn-text-color-hover: $black;
+$btn-text-color-active: rgba($white, .3);
+$btn-font-weight: $medium;
+$btn-font-size: $font-size-base;
+// $btn-border: none;
+$btn-border-radius: 3px;
+$btn-padding: 14px 53px;
+$btn-box-shadow: inset 0 3px 0 rgba($white, 0.4);
+
+// LINKS
+// text-color, -hover, -underline, -active(:active), -selected, -disabled
+// *selected - например, страница на которой находится пользователь
+// Ex: $link-info-text-color-hover; $link-default-text-color-hover;
+
+// ETC
+// $border-section: 2px solid $black;
