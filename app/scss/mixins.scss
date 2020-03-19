@@ -23,3 +23,264 @@
     clear: both;
   }
 }
+
+@mixin Text-Style {
+  color: $sick-green;
+
+  font-size: rem(36);
+  font-weight: bold;
+  line-height: rem(38);
+}
+
+@mixin Text-Style-2 {
+  color: $white;
+
+  font-size: rem(36);
+  font-weight: bold;
+  line-height: rem(38);
+}
+
+@mixin Text-Style-3 {
+  color: $white;
+
+  font-size: rem(26);
+  font-weight: bold;
+  line-height: rem(28);
+}
+
+@mixin Text-Style-4 {
+  color: $black-four;
+
+  font-size: rem(24);
+  font-weight: bold;
+  line-height: rem(16);
+}
+
+@mixin Text-Style-5 {
+  color: $black-two;
+
+  font-size: rem(22);
+  font-weight: bold;
+  line-height: rem(18);
+}
+
+@mixin Text-Style-6 {
+  color: $black-two;
+
+  font-size: rem(18);
+  font-weight: bold;
+  line-height: rem(18);
+}
+
+@mixin Text-Style-7 {
+  color: $sick-green;
+
+  font-size: rem(16);
+  font-weight: 500;
+  line-height: rem(18);
+}
+
+@mixin Text-Style-8 {
+  color: $black-two;
+
+  font-size: rem(15);
+  font-weight: bold;
+  line-height: rem(30);
+}
+
+@mixin Text-Style-10 {
+  color: $black-four;
+
+  font-size: rem(15);
+  line-height: rem(16);
+}
+
+@mixin Text-Style-13 {
+  color: $black-three;
+
+  font-size: rem(15);
+  line-height: rem(28);
+  letter-spacing: -0.75px;
+}
+
+@mixin Text-Style-9 {
+  color: $black-three;
+
+  font-size: rem(15);
+  line-height: rem(28);
+}
+
+@mixin Text-Style-11 {
+  color: $white;
+
+  font-size: rem(15);
+  line-height: rem(28);
+  letter-spacing: -0.75px;
+}
+
+@mixin Text-Style-12 {
+  color: $black-two;
+
+  font-size: rem(15);
+  line-height: rem(18);
+}
+
+@mixin Text-Style-14 {
+  color: $white;
+
+  font-size: rem(14);
+  font-weight: bold;
+  line-height: rem(25);
+}
+
+@mixin Text-Style-15 {
+  color: $sick-green-two;
+
+  font-size: rem(14);
+  font-weight: bold;
+  line-height: rem(25);
+}
+
+@mixin Text-Style-16 {
+  color: $sick-green;
+
+  font-size: rem(14);
+  font-weight: bold;
+  line-height: rem(25);
+}
+
+@mixin Text-Style-17 {
+  color: $sick-green;
+
+  font-size: rem(14);
+  font-weight: bold;
+  line-height: rem(19);
+}
+
+@mixin Text-Style-18 {
+  color: $white;
+
+  font-size: rem(14);
+  font-weight: 500;
+  line-height: rem(16);
+}
+
+@mixin Text-Style-19 {
+  color: $white;
+
+  font-size: rem(14);
+  line-height: rem(18);
+}
+
+@mixin Text-Style-21 {
+  color: $white;
+
+  font-size: rem(14);
+  line-height: rem(50);
+}
+
+@mixin Text-Style-22 {
+  color: $white;
+
+  font-size: rem(14);
+  line-height: rem(18);
+}
+
+@mixin Text-Style-23 {
+  color: $black-two;
+
+  font-size: rem(14);
+  line-height: rem(50);
+}
+
+@mixin Text-Style-24 {
+  color: $black-two;
+
+  font-size: rem(14);
+  line-height: rem(18);
+}
+
+@mixin Text-Style-20 {
+  color: $black-two;
+
+  font-size: rem(14);
+  line-height: rem(16);
+}
+
+@mixin Text-Style-25 {
+  color: $black-two;
+
+  font-size: rem(13);
+  line-height: rem(19);
+}
+
+@mixin Text-Style-26 {
+  color: $black-two;
+
+  font-size: rem(13);
+  line-height: rem(18);
+}
+
+@mixin Text-Style-28 {
+  color: $white;
+
+  font-size: rem(13);
+  line-height: rem(16);
+}
+
+@mixin Text-Style-27 {
+  color: $black-two;
+
+  font-size: rem(13);
+  line-height: rem(18);
+}
+
+@mixin Text-Style-29 {
+  color: $grey;
+
+  font-size: rem(12);
+  line-height: rem(18);
+}
+
+@mixin Text-Style-30 {
+  color: $grey;
+
+  font-size: rem(12);
+  line-height: rem(24);
+}
+
+@mixin Text-Style-31 {
+  color: $black-two;
+
+  font-size: rem(12);
+  line-height: rem(30);
+}
+
+@mixin Text-Style-32 {
+  color: $black-two;
+
+  font-size: rem(12);
+  line-height: rem(16);
+}
+
+@mixin Text-Style-33 {
+  color: $brownish-grey;
+
+  font-size: rem(12);
+  line-height: rem(30);
+}
+
+@mixin Text-Style-34 {
+  color: $black-two;
+
+  font-size: rem(12);
+  line-height: rem(30);
+}
+
+@mixin Text-Style-35 {
+  color: $grey;
+
+  font-size: rem(11);
+  line-height: rem(16);
+  letter-spacing: 1.1px;
+}

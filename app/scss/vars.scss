@@ -6,7 +6,8 @@
 
 img {
   max-width: 100%;
-  height: auto;
+  // change растягивало лого
+  // height: auto;
 }
 
 // BREAKPOINTS - желательно не менять, но вдруг
@@ -20,6 +21,7 @@ $gutter: $grid-gutter-width;
 // lighten, darken, low&high=saturation, op=opacity.
 // shortcut "cr" => color: rgba(text-color, .5);
 // Ex $black-op: rgba($black, .3);
+$transparent: transparent;
 $bland: #b6a89b;
 $black-two: #282828;
 $sick-green: #95cf2e;
@@ -37,10 +39,11 @@ $black: #000000;
 $white-three: #f5f5f5;
 $brownish-grey: #6b6761;
 $light-grey-three: #f1ece7;
+$light-grey-four: #f1ede8;
 
 // SCAFFOLDING
-$font-size-base: 13px;
-$line-height-base: em(19px);
+$font-size-base: 16px;
+$line-height-base: 18px;
 // Точно sans-serif? Вдруг в этот раз это не так
 $font-family-base: "HelveticaNeueCyr", Arial, sans-serif;
 // $font-family-base: "HelveticaNeueCyr-Roman", Arial, sans-serif;
@@ -51,9 +54,15 @@ $body-bg: $white;
 // FUNCTIONS
 $retina: "(min-resolution: 144dpi), (min-resolution: 1.5dppx)";
 
-// In SCSS em(размер из фотошопа с px); line-height: em(24px); font-size: em(50px);
-@function em($px, $base: $font-size-base) {
-  @return ($px / $base) * 1em;
+// Устарело и работало не совсем масштабируемо. In SCSS em(размер из фотошопа с px); line-height: em(24px); font-size: em(50px);
+// @function em($px, $base: $font-size-base) {
+//   @return ($px / $base) * 1em;
+// }
+
+// Fonts. Тоже самое только с REM вместо EM
+$browser-context: 16; // Default не менять
+@function rem($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}rem;
 }
 
 // z-index
