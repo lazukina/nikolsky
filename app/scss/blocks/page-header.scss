@@ -1,0 +1,445 @@
+// На какой ширине уйдет меню
+$media-end: 992px;
+
+// Ширина гамбургера
+$hamburger-length: 26px;
+// Высота гамбургера
+$hamburger-height: 22px;
+// Ширина одной полоски
+$hamburger-width: 4px;
+// Закругленные концы?
+$hamburger-radius: 4px;
+// Зона нажатия обычно 10px;
+$thumb-size: 34px;
+// Позиционирование зоны, а не полосок
+$hamburger-pos-ver: 0;
+$hamburger-pos-hor: 0;
+// Цвет полосок гамбургера
+$hamburger-stripe-color: $black-two;
+$hamburger-stripe-color-on-hover: $sick-green;
+$hamburger-stripe-color-on-actvie: $apple;
+// Длиннее чем в макете. если в макете 24px, то минимум 32px
+$cross-length: 32px; //36 tab
+$cross-width: 4px;
+$cross-text-color-default: $white;
+$cross-text-color-hover: $sick-green;
+$cross-text-color-active: $apple;
+
+// Don't touch! For hamburger stripes position.
+$stripes-sum: $hamburger-width * 3;
+$gap: ($hamburger-height - $stripes-sum) / 2;
+$stripe-2-pos: $hamburger-width + $gap;
+$stripe-3-pos: $stripe-2-pos + $gap + $hamburger-width;
+$temp: $hamburger-length - $hamburger-height;
+
+// Don't touch! Зона нажатия.
+$toggle-hamburger-size-width: $hamburger-length + $thumb-size;
+$toggle-hamburger-size-height: $hamburger-height + $temp + $thumb-size;
+$toggle-hamburger-position-in-focus-vertical: $hamburger-pos-ver;
+$toggle-hamburger-position-in-focus-horizontal: $hamburger-pos-hor;
+$toggle-hamburger-bg-default: transparent;
+$toggle-hamburger-bg-hover: transparent;
+$toggle-hamburger-bg-active: transparent;
+$hamburger-position-vertical: ($toggle-hamburger-size-height - $hamburger-height) / 2;
+$hamburger-position-horizontal: ($toggle-hamburger-size-width - $hamburger-length) / 2;
+$hamburger-stripe-text-color-default: $hamburger-stripe-color;
+$hamburger-stripe-padding-2: 0 $stripe-2-pos 0 0 $hamburger-stripe-text-color-default;
+$hamburger-stripe-padding-3: 0 $stripe-3-pos 0 0 $hamburger-stripe-text-color-default;
+$hamburger-stripe-text-color-hover: $hamburger-stripe-color-on-hover;
+$hamburger-stripe-text-color-hover-2: 0 $stripe-2-pos 0 0 $hamburger-stripe-text-color-hover;
+$hamburger-stripe-text-color-hover-3: 0 $stripe-3-pos 0 0 $hamburger-stripe-text-color-hover;
+$hamburger-stripe-text-color-active: $hamburger-stripe-color-on-actvie;
+$hamburger-stripe-text-color-active-2: 0 $stripe-2-pos 0 0 $hamburger-stripe-text-color-active;
+$hamburger-stripe-text-color-active-3: 0 $stripe-3-pos 0 0 $hamburger-stripe-text-color-active;
+
+// Особенности макета, придется вручную подбирать
+$toggle-cross-size-width: $toggle-hamburger-size-width;
+$toggle-cross-position-in-focus-vertical: 0;
+// hor - Рассчитано на меню в левом углу. Для правого ищи строчку:
+// Положение в правом углу - right в пикселях px, а left: auto;
+$toggle-cross-position-in-focus-horizontal: 0;
+$cross-position-vertical: 28px;
+$cross-position-horizontal: 14px;
+$item-font-weight: bold;
+$item-padding: 20px;
+$item-font-size: em(18px);
+$item-line-height: em(24px);
+$item-text-align: left;
+$item-text-color-default: #ffffff;
+// Если пункты меню будут менять цвет текста (ховер и пр.)
+$item-text-color-hover: #d22856;
+$item-text-color-active: #ffffff;
+$item-text-transform: uppercase;
+$item-text-decoration: none;
+// Если пункты меню будут менять фон (ховер и пр.)
+$item-bg-default: $white;
+$item-bg-hover: darken($item-bg-default, 8%);
+$item-bg-active: darken($item-bg-default, 15%);;
+$item-border-top: 0 solid rgba(255, 255, 255, 0.15);
+$item-border-bottom: 0 solid #000000;
+
+// user-block-link - это корзина или логин как правило.
+// Положение иконки взято из stylesheet.txt
+$user-block-link-icon: url("../img/spritesheet.png") no-repeat -5px -5px;
+$user-block-link-icon-padding: 20px 20px 20px 50px;
+$user-block-link-icon-position-vertical: 26px;
+$user-block-link-icon-position-horizontal: 21px;
+$user-block-link-icon-size-width: 15px;
+$user-block-link-icon-size-height: 15px;
+
+// TABLET styleguide. Задавать переменные для laptop или desktop версий бессмысленно ибо они должны будут соответствовать макету заказчика.
+$tablet-bg-default: #4c6783;
+$tablet-user-block-link-icon-position-vertical: 36px;
+$tablet-user-block-link-icon-position-horizontal: -13px;
+$tablet-item-padding: 30px 13px 20px 13px;
+// потому что основной паддинг 13px
+$tablet-icon-padding: 13px;
+// потому что основной паддинг 13px
+$tablet-selected-item-underline-height: 13px;
+$tablet-selected-item-underline-width: 3px;
+$tablet-selected-item-underline-position-vertical: 10px;
+$tablet-logo-position: -15px;
+$tablet-logo-position-selected: 10px;
+
+// Простая обводка у кнопки (гамбургера и креста)
+button:focus {
+  outline: 0 solid darken($white, 15%);
+}
+
+.main-nav {
+  position: relative;
+
+  width: auto;
+  // change.защита от потенциального глюка при открытии и закрытии меню
+  min-height: 60px;
+
+  background-color: $item-bg-default;
+}
+
+.main-nav__toggle {
+  position: absolute;
+  top: $toggle-hamburger-position-in-focus-vertical;
+  left: $toggle-hamburger-position-in-focus-horizontal;
+  // change. Нужен если есть полупрозрачный оверлей в закрытом виде и/или надпись, лого
+  // z-index: 2;
+
+  display: block;
+
+  padding: 0;
+  // Ширина и высота кнопки это зона ховера ибо сделать это паддингом как для кнопок-ссылок не получится; font-size убирает надпись
+
+  width: $toggle-hamburger-size-width;
+  height: $toggle-hamburger-size-height;
+
+  font-size: 0;
+  // У button есть дефолтная граница, фон и прочие. От них мы и избавляемся.Гамбургер и крестик всегда должным иметь прозрачный фоновый цвет.
+
+  background-color: $toggle-hamburger-bg-default;
+  border: none;
+  border-right: 1px solid $light-grey-four;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $toggle-hamburger-bg-hover;
+  }
+  &:active {
+    background-color: $toggle-hamburger-bg-active;
+  }
+}
+
+.main-nav--closed .main-nav__toggle::before {
+  content: "";
+  position: absolute;
+  top: $hamburger-position-vertical;
+  left: $hamburger-position-horizontal;
+
+  width: $hamburger-length;
+  height: $hamburger-width;
+
+  background-color: $hamburger-stripe-text-color-default;
+  // change
+  border-radius: $hamburger-radius;
+  box-shadow: $hamburger-stripe-padding-2,
+  $hamburger-stripe-padding-3;
+}
+
+.main-nav--closed .main-nav__toggle:hover::before {
+  background-color: $hamburger-stripe-text-color-hover;
+  box-shadow: $hamburger-stripe-text-color-hover-2,
+  $hamburger-stripe-text-color-hover-3;
+}
+
+.main-nav--closed .main-nav__toggle:active::before {
+  background-color: $hamburger-stripe-text-color-active;
+  box-shadow: $hamburger-stripe-text-color-active-2,
+  $hamburger-stripe-text-color-active-3;
+}
+
+// .main-nav--opened - вешаешь на main-nav через js - появляется крестик
+.main-nav--opened .main-nav__toggle {
+  // Положение в правом углу - right в пикселях px, а left: auto;
+  // Положение в левом углу - left в пикселях px, а right: auto;
+  top: $toggle-cross-position-in-focus-vertical;
+  // change
+  right: auto;
+  left: $toggle-cross-position-in-focus-horizontal;
+
+  padding: 30px;
+
+  width: $toggle-cross-size-width;
+  // Особенности макета
+
+  background-color: $black-two;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: $cross-position-vertical;
+    left: $cross-position-horizontal;
+
+    width: $cross-length;
+    height: $cross-width;
+
+    background-color: $cross-text-color-default;
+    // change
+    border-radius: $hamburger-radius;
+  }
+  &::before {
+    box-shadow: none;
+    transform: rotate(45deg);
+  }
+  &::after {
+    transform: rotate(-45deg);
+  }
+  &:hover::before,
+  &:hover::after {
+    background-color: $cross-text-color-hover;
+  }
+  &:active::before,
+  &:active::after {
+    background-color: $cross-text-color-active;
+  }
+}
+
+.main-nav__list {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.main-nav__item a {
+  display: block;
+
+  padding: $item-padding;
+
+  text-align: $item-text-align;
+  color: $item-text-color-default;
+  font-size: $item-font-size;
+  font-weight: $item-font-weight;
+  line-height: $item-line-height;
+  text-transform: $item-text-transform;
+  text-decoration: $item-text-decoration;
+
+  background-color: $item-bg-default;
+  border-top: $item-border-top;
+  border-bottom: $item-border-bottom;
+}
+
+.main-nav__item a[href],
+.main-nav__user-block a[href] {
+  &:hover {
+    background-color: $item-bg-hover;
+    border-top-color: $item-bg-hover;
+  }
+  &:active {
+    // change. Если цвет текста будет меняться. Если нет, то color можно удалить
+    color: $item-text-color-active;
+
+    background-color: $item-bg-active;
+    border-top-color: $item-bg-active;
+  }
+}
+
+.main-nav__user-block {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.main-nav__user-block-link {
+  position: relative;
+
+  display: block;
+
+  padding: $user-block-link-icon-padding;
+
+  text-align: $item-text-align;
+  color: $item-text-color-default;
+  font-size: $item-font-size;
+  font-weight: $item-font-weight;
+  line-height: $item-line-height;
+  text-transform: $item-text-transform;
+  text-decoration: $item-text-decoration;
+
+  background-color: $item-bg-default;
+  border-top: $item-border-top;
+  border-bottom: $item-border-bottom;
+  &:hover,
+  &:focus {
+    color: $item-text-color-default;
+    text-decoration: none;
+  }
+  // иконка для логина или корзины
+  &::before {
+    content: "";
+    position: absolute;
+    top: $user-block-link-icon-position-vertical;
+    left: $user-block-link-icon-position-horizontal;
+
+    width: $user-block-link-icon-size-width;
+    height: $user-block-link-icon-size-height;
+
+    background: $user-block-link-icon;
+  }
+}
+
+// Код для любого активного элемента, кроме лого, в закрытом виде.
+.main-nav--closed .main-nav__item--active a:not(.main-nav__logo) {
+  padding-top: 30px;
+
+  border: none;
+}
+
+// Дефолтное состояние меню закрытое и оно заканчивается на
+@media (max-width: $media-end) {
+  // --active - дает возможность отображатся рядом с гамбургером, пункту меню, на котором мы находимся
+  .main-nav--closed .main-nav__item {
+    display: none;
+    &--active {
+      display: block;
+    }
+  }
+
+  .main-nav--closed .main-nav__user-block {
+    display: none;
+  }
+  // код на случий отказа js - меню должно быть в открытом состоянии и без toggle
+  .main-nav--nojs .main-nav__toggle {
+    display: none;
+  }
+
+  .main-nav--nojs .main-nav__item,
+  .main-nav--nojs .main-nav__user-block {
+    display: block;
+  }
+}
+
+@media (min-width: $media-end) {
+
+  .main-nav {
+    display: flex;
+    // перестраховка на случай переполнения
+    flex-wrap: wrap;
+
+    background-color: $tablet-bg-default;
+    border-bottom: $item-border-bottom;
+  }
+
+  .main-nav__toggle {
+    display: none;
+  }
+
+  .main-nav__list {
+    // собственно выстраивает элементы в строчку
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .main-nav__item a {
+    border: none;
+  }
+
+  .main-nav__item a[href],
+  .main-nav__user-block a[href] {
+    padding: $tablet-item-padding;
+    &:hover {
+      color: $item-text-color-hover;
+
+      background-color: $tablet-bg-default;
+    }
+    &:active {
+      color: $item-text-color-default;
+
+      background-color: $tablet-bg-default;
+      opacity: 0.3;
+    }
+  }
+
+  .main-nav__item .main-nav__logo--link img {
+    margin-top: $tablet-logo-position;
+  }
+
+  .main-nav__item--active a {
+    &:hover {
+      color: $item-text-color-default;
+
+      background-color: $tablet-bg-default;
+    }
+    &:active {
+      color: $item-text-color-default;
+
+      background-color: $tablet-bg-default;
+      // change. Если у дефолтных пунктов меню есть opacity в active
+      opacity: 1;
+    }
+  }
+
+  .main-nav__item--active a:not(.main-nav__logo) {
+    position: relative;
+
+    padding: $tablet-item-padding;
+    &::after {
+      content: "";
+      position: absolute;
+      // right and left - будут зависить от левого и правого паддинга item. Т.е. они должны быть такими же.
+      right: $tablet-selected-item-underline-height;
+      bottom: $tablet-selected-item-underline-position-vertical;
+      left: $tablet-selected-item-underline-height;
+
+      height: $tablet-selected-item-underline-width;
+
+      background-color: $item-text-color-hover;
+    }
+  }
+
+  .main-nav__item--active img {
+    padding-top: $tablet-logo-position-selected;
+  }
+
+  .main-nav__user-block {
+    // продублировать паддинг от переменной паддинга для остальных item иначе иконка будет наезжать
+    padding-left: $tablet-icon-padding;
+  }
+
+  .main-nav__user-block-link {
+    border: none;
+    &:before {
+      top: $tablet-user-block-link-icon-position-vertical;
+      left: $tablet-user-block-link-icon-position-horizontal;
+    }
+    &:hover {
+      color: $item-text-color-hover;
+
+      background-color: $tablet-bg-default;
+    }
+    &:active {
+      color: $item-text-color-default;
+
+      background-color: $tablet-bg-default;
+      opacity: 0.3;
+    }
+  }
+}
