@@ -1,0 +1,89 @@
+$btn-bg-default: $apple;
+$btn-bg-hover: blue;
+$btn-bg-active: black;
+$btn-text-color-default: $white;
+$btn-text-color-hover: $white;
+$btn-text-color-active: $white;
+
+// Размеры из Zeplin - 260 x 40
+// После введения всех остальных параметров - 116 x 25
+// 25 - скорее-всего из-за lh25 144
+$btn-width: 260px;
+$btn-height: 40px;
+$btn-lh: 25px;
+$btn-padding-t-b: ($btn-height - $btn-lh) / 2;
+// Take width from Dev-tools
+$dev-tool-width: 116px;
+$btn-padding-l-r: ($btn-width - $dev-tool-width) / 2;
+$btn-padding: $btn-padding-t-b $btn-padding-l-r;
+$btn-font-weight: bold;
+$btn-font-size: rem(14);
+$btn-border: none;
+$btn-border-radius: 3px;
+$btn-box-shadow: inset 0 3px 0 rgba(0, 1, 1, 0.1);
+
+// For additional buttons: info, price, form-send, order, comment etc.
+$btn-comment-bg-default: black;
+
+.btn {
+  // Если нужно растянуть кнопку на всю ширину (например, для мобильной версии) это можно сделать через flex
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+  display: inline-block;
+  // Размеры кнопки лучше задавать через padding, чем через width & height
+
+  padding: $btn-padding;
+  // Работа со шрифтом
+
+  text-align: center;
+  color: $btn-text-color-default;
+  font-size: $btn-font-size;
+  // background-color: $btn-bg-default;
+  font-weight: $btn-font-weight;
+  line-height: $btn-lh;
+  text-transform: none;
+  text-decoration: none;
+
+  background-image: linear-gradient(to right, $apple, $sickly-yellow);
+  // Если не нужны закругленные углы удалить border-radius
+  border: $btn-border;
+  border-radius: $btn-border-radius;
+  cursor: pointer;
+  // Анимация
+  // transition: all 0.3s ease 0s;
+
+  transition: all 2s;
+  // Тень
+  // box-shadow: $btn-box-shadow;
+  // text-shadow: $btn-text-shadow;
+  &:hover,
+  &:focus,
+  &:visited,
+  &:active {
+    color: $btn-text-color-default;
+    text-decoration: none;
+    //Расскомментировать если кнопка вешается на <button>
+    // outline: none;
+  }
+  &:hover {
+    color: $btn-text-color-hover;
+
+    background-position: right center;
+    // background-color: $btn-bg-hover;
+    background-size: 200% auto;
+  }
+  &:active {
+    color: $btn-text-color-active;
+    text-decoration: none;
+
+    background-color: $btn-bg-active;
+    // Как пример использования тени
+    box-shadow: $btn-box-shadow;
+  }
+}
+
+.btn--call {
+  margin-top: 5px;
+}

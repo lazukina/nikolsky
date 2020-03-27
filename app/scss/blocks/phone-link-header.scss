@@ -1,0 +1,32 @@
+.phone-link-header {
+  &__icon-label {
+    position: relative;
+
+    margin-bottom: 50px;
+
+    color: $grey;
+    font-size: rem(11);
+    line-height: rem(16);
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 4px;
+      left: -33px;
+
+      width: 16px;
+      height: 24px;
+
+      background: $transparent url(../img/icons/sprite.png) no-repeat -293px -5px;
+    }
+  }
+  &__link {
+    font-size: rem(15);
+    line-height: rem(28);
+    letter-spacing: -0.75px;
+    @media ($sm) {
+      color: $black-three;
+    }
+  }
+}
