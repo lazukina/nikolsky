@@ -18,4 +18,7 @@
 
     background: $transparent url(../img/icons/sprite.png) no-repeat -422px -5px;;
   }
-}
+  @media ($sm) {
+    left: 5px;
+  }
+}

@@ -1,0 +1,36 @@
+.phone-in-header {
+  &__title {
+    position: relative;
+
+    color: $grey;
+    font-size: rem(11);
+    line-height: rem(16);
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 4px;
+      left: -31px;
+
+      width: 16px;
+      height: 24px;
+
+      background: $transparent url(../img/icons/sprite.png) no-repeat -293px -5px;
+    }
+  }
+  &__link {
+    font-size: rem(15);
+    line-height: rem(22);
+    letter-spacing: -0.75px;
+    & a {
+      color: $black-three;
+      &:hover {
+        color: $link-text-color-hover;
+      }
+      &:active {
+        color: $link-text-color-active;
+      }
+    }
+  }
+}

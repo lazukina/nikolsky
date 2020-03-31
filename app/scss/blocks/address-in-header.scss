@@ -1,0 +1,28 @@
+.address-in-header {
+  padding-top: 26px;
+  &__title {
+    position: relative;
+
+    color: $grey;
+    font-size: rem(11);
+    line-height: rem(16);
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: -33px;
+
+      width: 18px;
+      height: 24px;
+
+      background: $transparent url(../img/icons/sprite.png) no-repeat -30px -5px;
+    }
+  }
+  &__text {
+    color: $white;
+    font-size: rem(13);
+    line-height: rem(16);
+  }
+}
