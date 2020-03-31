@@ -1,6 +1,6 @@
 .address {
-  padding-top: 20px;
-  &__icon-label {
+  padding-top: 26px;
+  &__title {
     position: relative;
 
     color: $grey;
@@ -11,8 +11,8 @@
     &::before {
       content: "";
       position: absolute;
-      top: 1px;
-      left: -34px;
+      top: 2px;
+      left: -33px;
 
       width: 18px;
       height: 24px;
@@ -21,7 +21,6 @@
     }
   }
   &__text {
-    text-align: center;
     color: $white;
     font-size: rem(13);
     line-height: rem(16);

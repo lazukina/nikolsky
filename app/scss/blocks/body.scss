@@ -2,4 +2,41 @@ body {
   font-family: $font-family-base;
 
   background-color: $body-bg;
+}
+
+// --------------------------------------
+
+$link-text-color-default: $white;
+$link-text-color-hover: $apple;
+$link-text-color-active: $sick-green-two;
+$link-td-default: none;
+$link-td-hover: none;
+
+a {
+  color: $link-text-color-default;
+  text-decoration: $link-td-default;
+  &:visited {
+    color: $link-text-color-default;
+    text-decoration: $link-td-hover;
+  }
+  &:focus {
+    color: $link-text-color-hover;
+    text-decoration: $link-td-hover;
+  }
+  &:hover {
+    color: $link-text-color-hover;
+    text-decoration: $link-td-hover;
+  }
+  &:active {
+    color: $link-text-color-active;
+    text-decoration: $link-td-hover;
+  }
+}
+
+//--------------------------------------
+ul {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
 }

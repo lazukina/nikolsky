@@ -4,11 +4,18 @@
 //   outline:none !important;
 // }
 
-img {
-  max-width: 100%;
-  // change растягивало лого
-  // height: auto;
-}
+// Вроде бы с Bootstrap это больше не нужно
+// img {
+//   max-width: 100%;
+//   height: auto;
+// }
+
+// Media
+$xs: ("min-width: 320px");
+$sm: ("min-width: 576px");
+$md: ("min-width: 768px");
+$lg: ("min-width: 992px");
+$xl: ("min-width: 1200px");
 
 // BREAKPOINTS - желательно не менять, но вдруг
 $grid-gutter-width: 20px;

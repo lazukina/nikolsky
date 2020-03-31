@@ -1,36 +1,90 @@
+// МЕНЮ
 // На какой ширине уйдет меню
 $media-end: 992px;
 $media-nav: $media-end - 1px;
 
-// Ширина гамбургера
+// ГАМБУРГЕР
+// ГАМБУРГЕР > ФОН
+$hamburger-bg-default: $body-bg;
+$hamburger-bg-on-hover: $body-bg;
+$hamburger-bg-on-active: $black;
+
+// ГАМБУРГЕР > РАЗМЕРЫ
+// Ширина гамбургера из макета
 $hamburger-length: 26px;
-// Высота гамбургера
+// Высота гамбургера из макета
 $hamburger-height: 22px;
+
+// ГАМБУРГЕР > ПОЛОСКИ
 // Ширина одной полоски
-$hamburger-width: 4px;
-// Закругленные концы?
-$hamburger-radius: 4px;
-// Зона нажатия обычно 10px;
-$thumb-size: 34px;
-// Позиционирование зоны, а не полосок
-$hamburger-pos-ver: -60px;
-$hamburger-pos-hor: 0;
+$hamburger-stripe-width: 4px;
+// Закругленные концы у полосок? Если нет 0px
+$hamburger-stripe-radius: 4px;
 // Цвет полосок гамбургера
 $hamburger-stripe-color: $black-two;
 $hamburger-stripe-color-on-hover: $sick-green;
-$hamburger-stripe-color-on-actvie: $apple;
-// Длиннее чем в макете. если в макете 24px, то минимум 32px
-$cross-length: 32px; //36 tab
-$cross-width: 4px;
-$cross-text-color-default: $white;
-$cross-text-color-hover: $sick-green;
-$cross-text-color-active: $apple;
+$hamburger-stripe-color-on-active: $apple;
 
-// Don't touch! For hamburger stripes position.
-$stripes-sum: $hamburger-width * 3;
+// ГАМБУРГЕР > ЗОНА НАЖАТИЯ
+// Как правило прозрачная (дабы ховер не начинался на полосках, а раньше). Цифра на усмотрение = не из макета. Обычно достаточно 10px.
+// $thumb-size: 10px; закомментирована ибо для сниппета
+// Если фон отличается цветом или у кнопки (toggle) есть border, тогда зона становится размером со всю кнопку выступая в качестве padding и подстраивается под нужды макета
+$thumb-size: 34px;
+
+// ГАМБУРГЕР > ЗОНА НАЖАТИЯ > ПОЗИЦИОНИРОВАНИЕ
+// Позиционирование зоны нажатия, а не полосок
+$hamburger-pos-ver: -60px;
+$hamburger-pos-hor: 0;
+
+// КРЕСТ
+// КРЕСТ > ПОЛОСКИ
+// Длиннее чем в макете. Вычисляется методом подстановки. Если в макете 24px, то будет минимум 32px
+$cross-stripe-length: 32px; // @change 36 tab
+// Ширина одной полоски
+$cross-stripe-width: 4px;
+// Цвет полосок креста
+$cross-stripe-color-default: $white;
+$cross-stripe-color-on-hover: $sick-green;
+$cross-stripe-color-on-active: $apple;
+
+// КРЕСТ > ПОЗИЦИОНИРОВАНИЕ
+$cross-position-vertical: 28px;
+$cross-position-horizontal: 14px;
+
+// ЭЛЕМЕНТЫ СПИСКА
+$item-font-size: rem(14);
+$item-line-height: rem(49);
+$item-font-weight: normal;
+$item-text-align: left;
+$item-text-transform: none;
+$item-text-decoration: none;
+$item-bg-default: $black-two;
+$item-text-color-default: $white;
+
+// Если пункты меню будут менять цвет текста (на hover & active)
+$item-text-color-hover: $sick-green;
+$item-text-color-active: $apple;
+
+// Если пункты меню будут менять фон (на hover & active)
+$item-bg-hover: none;
+$item-bg-active: none;
+
+// @change for snippet
+// $item-text-position: 0px 0px 0px 0px;
+$item-text-position: 0 5px 0 28px;
+$item-border-top: 1px solid rgba($white, 0.05);
+// Эффект тени от border
+$item-border-bottom: 0 solid #000000;
+
+// ОСТАЛЬНОЕ ВЫЧИСЛЯЕТСЯ АВТОМАТИЧЕСКИ //
+// Изменения нужны редко и они помечены тегом @change
+// Ниже можно добавить переменные под разные версии
+
+// Don't touch! For hamburger stripes position between stripes.
+$stripes-sum: $hamburger-stripe-width * 3;
 $gap: ($hamburger-height - $stripes-sum) / 2;
-$stripe-2-pos: $hamburger-width + $gap;
-$stripe-3-pos: $stripe-2-pos + $gap + $hamburger-width;
+$stripe-2-pos: $hamburger-stripe-width + $gap;
+$stripe-3-pos: $stripe-2-pos + $gap + $hamburger-stripe-width;
 $temp: $hamburger-length - $hamburger-height;
 
 // Don't touch! Зона нажатия.
@@ -38,49 +92,33 @@ $toggle-hamburger-size-width: $hamburger-length + $thumb-size;
 $toggle-hamburger-size-height: $hamburger-height + $temp + $thumb-size;
 $toggle-hamburger-position-in-focus-vertical: $hamburger-pos-ver;
 $toggle-hamburger-position-in-focus-horizontal: $hamburger-pos-hor;
-$toggle-hamburger-bg-default: $white;
-$toggle-hamburger-bg-hover: $white;
-$toggle-hamburger-bg-active: $black;
+
+// Don't touch! Позиционирование
 $hamburger-position-vertical: ($toggle-hamburger-size-height - $hamburger-height) / 2;
 $hamburger-position-horizontal: ($toggle-hamburger-size-width - $hamburger-length) / 2;
-$hamburger-stripe-text-color-default: $hamburger-stripe-color;
-$hamburger-stripe-padding-2: 0 $stripe-2-pos 0 0 $hamburger-stripe-text-color-default;
-$hamburger-stripe-padding-3: 0 $stripe-3-pos 0 0 $hamburger-stripe-text-color-default;
-$hamburger-stripe-text-color-hover: $hamburger-stripe-color-on-hover;
-$hamburger-stripe-text-color-hover-2: 0 $stripe-2-pos 0 0 $hamburger-stripe-text-color-hover;
-$hamburger-stripe-text-color-hover-3: 0 $stripe-3-pos 0 0 $hamburger-stripe-text-color-hover;
-$hamburger-stripe-text-color-active: $hamburger-stripe-color-on-actvie;
-$hamburger-stripe-text-color-active-2: 0 $stripe-2-pos 0 0 $hamburger-stripe-text-color-active;
-$hamburger-stripe-text-color-active-3: 0 $stripe-3-pos 0 0 $hamburger-stripe-text-color-active;
 
-// Особенности макета, придется вручную подбирать
+// Don't touch! Полоски гамбургера
+$hamburger-stripe-padding-2: 0 $stripe-2-pos 0 0 $hamburger-stripe-color;
+$hamburger-stripe-padding-3: 0 $stripe-3-pos 0 0 $hamburger-stripe-color;
+$hamburger-stripe-color-on-hover-2: 0 $stripe-2-pos 0 0 $hamburger-stripe-color-on-hover;
+$hamburger-stripe-color-on-hover-3: 0 $stripe-3-pos 0 0 $hamburger-stripe-color-on-hover;
+$hamburger-stripe-color-on-active-2: 0 $stripe-2-pos 0 0 $hamburger-stripe-color-on-active;
+$hamburger-stripe-color-on-active-3: 0 $stripe-3-pos 0 0 $hamburger-stripe-color-on-active;
+
+// Don't touch! Ширина и положение креста почти всегда будет равна ширине и положению гамбургера
+// Но на всякий @change
 $toggle-cross-size-width: $toggle-hamburger-size-width;
-$toggle-cross-position-in-focus-vertical: -60px;
-// hor - Рассчитано на меню в левом углу. Для правого ищи строчку: Положение в правом углу - right в пикселях px, а left: auto;
-$toggle-cross-position-in-focus-horizontal: 0;
-$cross-position-vertical: 28px;
-$cross-position-horizontal: 14px;
-$item-font-weight: normal;
-$item-padding: 0 5px 0 28px;
-$item-font-size: rem(14);
-$item-line-height: rem(49);
-$item-text-align: left;
-$item-text-color-default: $white;
-// Если пункты меню будут менять цвет текста (ховер и пр.)
-$item-text-color-hover: $sick-green;
-$item-text-color-active: $apple;
-$item-text-transform: none;
-$item-text-decoration: none;
-// Если пункты меню будут менять фон (ховер и пр.)
-$item-bg-default: $black-two;
-$item-bg-hover: none;
-$item-bg-active: none;
-$item-border-top: 1px solid rgba($white, 0.05);
+$toggle-cross-position-in-focus-vertical: $hamburger-pos-ver;
+// @change hor - Рассчитано на меню в левом углу. Для правого ищи строчку:
+// Положение в правом углу - right в пикселях px, а left: auto;
+$toggle-cross-position-in-focus-horizontal: $hamburger-pos-hor;
+
+// Для удобства
+$item-padding: $item-text-position;
 $border-top-color-on-hover: $item-border-top;
 $border-top-color-on-active: $item-border-top;
-$item-border-bottom: 0 solid #000000;
 
-// TABLET styleguide. Задавать переменные для laptop или desktop версий бессмысленно ибо они должны будут соответствовать макету заказчика.
+// TABLET styleguide
 $tablet-bg-default: #4c6783;
 $tablet-user-block-link-icon-position-vertical: 36px;
 $tablet-user-block-link-icon-position-horizontal: -13px;
@@ -91,8 +129,6 @@ $tablet-icon-padding: 13px;
 $tablet-selected-item-underline-height: 13px;
 $tablet-selected-item-underline-width: 3px;
 $tablet-selected-item-underline-position-vertical: 10px;
-// $tablet-logo-position: -15px;
-// $tablet-logo-position-selected: 10px;
 
 // Простая обводка у кнопки (гамбургера и креста)
 button:focus {
@@ -100,7 +136,6 @@ button:focus {
 }
 
 .main-nav {
-  // changed by me
   position: absolute;
   top: 60px;
   // change.защита от потенциального глюка при открытии и закрытии меню. В данном макете это вызывало глюк
@@ -111,7 +146,6 @@ button:focus {
 
 .main-nav__toggle {
   content: "";
-  // changed by me
   position: absolute;
   top: $toggle-hamburger-position-in-focus-vertical;
   left: $toggle-hamburger-position-in-focus-horizontal;
@@ -129,56 +163,53 @@ button:focus {
   font-size: 0;
   // У button есть дефолтная граница, фон и прочие. От них мы и избавляемся.Гамбургер и крестик всегда должным иметь прозрачный фоновый цвет.
 
-  background-color: $toggle-hamburger-bg-default;
+  background-color: $hamburger-bg-default;
   border: none;
   border-right: 1px solid $light-grey-four;
   cursor: pointer;
 
   &:hover {
-    background-color: $toggle-hamburger-bg-hover;
+    background-color: $hamburger-bg-on-hover;
   }
   &:active {
-    background-color: $toggle-hamburger-bg-active;
+    background-color: $hamburger-bg-on-active;
   }
 }
 
 .main-nav--closed .main-nav__toggle::before {
   content: "";
-  // changed by me
   position: absolute;
   top: $hamburger-position-vertical;
   left: $hamburger-position-horizontal;
 
   width: $hamburger-length;
-  height: $hamburger-width;
+  height: $hamburger-stripe-width;
 
-  background-color: $hamburger-stripe-text-color-default;
-  // change
-  border-radius: $hamburger-radius;
+  background-color: $hamburger-stripe-color;
+  border-radius: $hamburger-stripe-radius;
   box-shadow: $hamburger-stripe-padding-2,
   $hamburger-stripe-padding-3;
 }
 
 .main-nav--closed .main-nav__toggle:hover::before {
-  background-color: $hamburger-stripe-text-color-hover;
-  box-shadow: $hamburger-stripe-text-color-hover-2,
-  $hamburger-stripe-text-color-hover-3;
+  background-color: $hamburger-stripe-color-on-hover;
+  box-shadow: $hamburger-stripe-color-on-hover-2,
+  $hamburger-stripe-color-on-hover-3;
 }
 
 .main-nav--closed .main-nav__toggle:active::before {
-  background-color: $hamburger-stripe-text-color-active;
-  box-shadow: $hamburger-stripe-text-color-active-2,
-  $hamburger-stripe-text-color-active-3;
+  background-color: $hamburger-stripe-color-on-active;
+  box-shadow: $hamburger-stripe-color-on-active-2,
+  $hamburger-stripe-color-on-active-3;
 }
 
 // .main-nav--opened - вешаешь на main-nav через js - появляется крестик
 .main-nav--opened .main-nav__toggle {
   // Положение в правом углу - right в пикселях px, а left: auto;
   // Положение в левом углу - left в пикселях px, а right: auto;
-  // changed by me
   position: absolute;
   top: $toggle-cross-position-in-focus-vertical;
-  // change
+  // @change
   right: auto;
   left: $toggle-cross-position-in-focus-horizontal;
 
@@ -198,12 +229,12 @@ button:focus {
     top: $cross-position-vertical;
     left: $cross-position-horizontal;
 
-    width: $cross-length;
-    height: $cross-width;
+    width: $cross-stripe-length;
+    height: $cross-stripe-width;
 
-    background-color: $cross-text-color-default;
+    background-color: $cross-stripe-color-default;
     // change
-    border-radius: $hamburger-radius;
+    border-radius: $hamburger-stripe-radius;
   }
   &::before {
     box-shadow: none;
@@ -214,11 +245,11 @@ button:focus {
   }
   &:hover::before,
   &:hover::after {
-    background-color: $cross-text-color-hover;
+    background-color: $cross-stripe-color-on-hover;
   }
   &:active::before,
   &:active::after {
-    background-color: $cross-text-color-active;
+    background-color: $cross-stripe-color-on-active;
   }
 }
 
@@ -297,8 +328,8 @@ button:focus {
   .main-nav--closed {
     .main-nav__item,
     .address,
-    .phone-link,
-    .btn--call {
+    .phone,
+    .btn-callback-in-nav {
       display: none;
     }
   }

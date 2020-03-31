@@ -1,7 +1,5 @@
-.phone-btn {
+.btn-callback-in-header {
   position: relative;
-
-  margin-left: 15px;
 
   width: 60px;
   height: 60px;
@@ -12,7 +10,6 @@
   &::before {
     content: "";
     position: absolute;
-    // зачем здесь были top:10px и left:10px - когда это только выносило иконку за рамки?
     top: 15px;
     left: 20px;
 
