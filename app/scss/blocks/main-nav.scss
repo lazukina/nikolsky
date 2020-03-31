@@ -142,9 +142,6 @@ button:focus {
   // min-height: 60px;
 
   background-color: $item-bg-default;
-  @media ($sm) {
-    top: 90px;
-  }
 }
 
 .main-nav__toggle {
@@ -176,10 +173,6 @@ button:focus {
   }
   &:active {
     background-color: $hamburger-bg-on-active;
-  }
-  @media ($sm) {
-  top: $toggle-hamburger-position-in-focus-vertical - 30px;
-  height: $toggle-hamburger-size-height + 30px;
   }
 }
 

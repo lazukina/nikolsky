@@ -11,7 +11,7 @@
     content: "";
     position: absolute;
     top: 15px;
-    left: 20px;
+    left: 17px;
 
     width: 27px;
     height: 27px;
@@ -19,6 +19,6 @@
     background: $transparent url(../img/icons/sprite.png) no-repeat -422px -5px;;
   }
   @media ($sm) {
-    left: 5px;
+    left: 16px;
   }
 }

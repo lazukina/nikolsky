@@ -1,6 +1,5 @@
 .page-header {
-  background-color: red;
-  @media ($sm) {
+  @media ($md) {
     min-height: 90px;
   }
 }
