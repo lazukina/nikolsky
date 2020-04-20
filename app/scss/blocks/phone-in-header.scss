@@ -1,4 +1,5 @@
 .phone-in-header {
+  margin-top: 10px;
   &__title {
     position: relative;
 
@@ -31,6 +32,26 @@
       &:active {
         color: $link-text-color-active;
       }
+    }
+  }
+  @media ($md) {
+    margin-top: 0;
+    &::after {
+      content: "";
+      position: absolute;
+      top: -23px;
+      left: -56px;
+
+      width: 1px;
+      height: $page-header-mh;
+
+      border-left: 1px solid $light-grey-four;
+    }
+  }
+  @media ($lg) {
+    padding-top: 2px;
+    &::after {
+      border-left: none;
     }
   }
 }

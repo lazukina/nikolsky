@@ -1,3 +1,7 @@
+$main-nav-ver-pos: 60px; //default 0
+// По-типу "Главная" в Barbershop
+$main-nav-showen-on-closed: 0;
+
 // МЕНЮ
 // На какой ширине уйдет меню
 $media-end: 992px;
@@ -30,6 +34,10 @@ $hamburger-stripe-color-on-active: $apple;
 // $thumb-size: 10px; закомментирована ибо для сниппета
 // Если фон отличается цветом или у кнопки (toggle) есть border, тогда зона становится размером со всю кнопку выступая в качестве padding и подстраивается под нужды макета
 $thumb-size: 34px;
+$hamburger-border-t: none;
+$hamburger-border-r: 1px solid $light-grey-four;
+$hamburger-border-b: none;
+$hamburger-border-l: none;
 
 // ГАМБУРГЕР > ЗОНА НАЖАТИЯ > ПОЗИЦИОНИРОВАНИЕ
 // Позиционирование зоны нажатия, а не полосок
@@ -62,6 +70,7 @@ $item-bg-default: $black-two;
 $item-text-color-default: $white;
 
 // Если пункты меню будут менять цвет текста (на hover & active)
+$main-nav-overlay-bg: $item-bg-default;
 $item-text-color-hover: $sick-green;
 $item-text-color-active: $apple;
 
@@ -70,15 +79,66 @@ $item-bg-hover: none;
 $item-bg-active: none;
 
 // @change for snippet
-// $item-text-position: 0px 0px 0px 0px;
 $item-text-position: 0 5px 0 28px;
 $item-border-top: 1px solid rgba($white, 0.05);
 // Эффект тени от border
 $item-border-bottom: 0 solid #000000;
 
+// OTHER VERSIONS
+// MD
+$main-nav-ver-pos-md: 90px;
+$main-nav-showen-on-closed-md: $main-nav-showen-on-closed;
+$hamburger-length-md: 35px;
+$hamburger-height-md: 24px;
+$hamburger-stripe-width-md: $hamburger-stripe-width;
+$thumb-size-md: 40px;
+$hamburger-pos-ver-md: -90px;
+$hamburger-pos-hor-md: 0;
+$cross-stripe-length-md: 36px;
+$cross-stripe-width-md: $cross-stripe-width;
+$cross-position-vertical-md: 42px;
+$cross-position-horizontal-md: 20px;
+$item-font-size-md: $item-font-size;
+$item-line-height-md: $item-line-height;
+$item-font-weight-md: $item-font-weight;
+$item-text-align-md: $item-text-align;
+$item-text-transform-md: $item-text-transform;
+$item-text-decoration-md: $item-text-decoration;
+$item-bg-default-md: $item-bg-default;
+$item-text-color-default-md: $item-text-color-default;
+$main-nav-overlay-bg-md: $item-bg-default-md;
+$item-text-position-md: $item-text-position;
+$item-border-top-md: $item-border-top;
+$item-border-bottom-md: $item-border-bottom;
+
+// XL
+$main-nav-ver-pos-xl: $main-nav-ver-pos-md;
+$main-nav-showen-on-closed-xl: $main-nav-showen-on-closed-md;
+$hamburger-length-xl: $hamburger-length-md;
+$hamburger-height-xl: $hamburger-height-md;
+$hamburger-stripe-width-xl: $hamburger-stripe-width-md;
+$thumb-size-xl: $thumb-size-md;
+$hamburger-pos-ver-xl: $hamburger-pos-ver-md;
+$hamburger-pos-hor-xl: $hamburger-pos-hor-md;
+$cross-stripe-length-xl: $cross-stripe-length-md;
+$cross-stripe-width-xl: $cross-stripe-width-md;
+$cross-position-vertical-xl: $cross-position-vertical-md;
+$cross-position-horizontal-xl: $cross-position-horizontal-md;
+$item-font-size-xl: $item-font-size-md;
+$item-line-height-xl: $item-line-height-md;
+$item-font-weight-xl: $item-font-weight-md;
+$item-text-align-xl: $item-text-align-md;
+$item-text-transform-xl: $item-text-transform-md;
+$item-text-decoration-xl: $item-text-decoration-md;
+$item-bg-default-xl: $item-bg-default-md;
+$item-text-color-default-xl: $item-text-color-default-md;
+$main-nav-overlay-bg-xl: $item-bg-default-md;
+$item-text-position-xl: $item-text-position-md;
+$item-border-top-xl: $item-border-top-md;
+$item-border-bottom-xl: $item-border-bottom-md;
+
 // ОСТАЛЬНОЕ ВЫЧИСЛЯЕТСЯ АВТОМАТИЧЕСКИ //
 // Изменения нужны редко и они помечены тегом @change
-// Ниже можно добавить переменные под разные версии
 
 // Don't touch! For hamburger stripes position between stripes.
 $stripes-sum: $hamburger-stripe-width * 3;
@@ -86,16 +146,46 @@ $gap: ($hamburger-height - $stripes-sum) / 2;
 $stripe-2-pos: $hamburger-stripe-width + $gap;
 $stripe-3-pos: $stripe-2-pos + $gap + $hamburger-stripe-width;
 $temp: $hamburger-length - $hamburger-height;
+// MD
+$stripes-sum-md: $hamburger-stripe-width-md * 3;
+$gap-md: ($hamburger-height-md - $stripes-sum-md) / 2;
+$stripe-2-pos-md: $hamburger-stripe-width-md + $gap-md;
+$stripe-3-pos-md: $stripe-2-pos-md + $gap-md + $hamburger-stripe-width-md;
+$temp-md: $hamburger-length-md - $hamburger-height-md;
+// XL
+$stripes-sum-xl: $hamburger-stripe-width-xl * 3;
+$gap-xl: ($hamburger-height-xl - $stripes-sum-xl) / 2;
+$stripe-2-pos-xl: $hamburger-stripe-width-xl + $gap-xl;
+$stripe-3-pos-xl: $stripe-2-pos-xl + $gap-xl + $hamburger-stripe-width-xl;
+$temp-xl: $hamburger-length-xl - $hamburger-height-xl;
 
 // Don't touch! Зона нажатия.
 $toggle-hamburger-size-width: $hamburger-length + $thumb-size;
 $toggle-hamburger-size-height: $hamburger-height + $temp + $thumb-size;
 $toggle-hamburger-position-in-focus-vertical: $hamburger-pos-ver;
 $toggle-hamburger-position-in-focus-horizontal: $hamburger-pos-hor;
+// MD
+$toggle-hamburger-size-width-md: $hamburger-length-md + $thumb-size-md;
+// snippet
+// $toggle-hamburger-size-height-md: $hamburger-height-md + $temp-md + $thumb-size-md;
+$toggle-hamburger-size-height-md: 90px;
+$toggle-hamburger-position-in-focus-vertical-md: $hamburger-pos-ver-md;
+$toggle-hamburger-position-in-focus-horizontal-md: $hamburger-pos-hor-md;
+// XL
+$toggle-hamburger-size-width-xl: $hamburger-length-xl + $thumb-size-xl;
+$toggle-hamburger-size-height-xl: $hamburger-height-xl + $temp-xl + $thumb-size-xl;
+$toggle-hamburger-position-in-focus-vertical-xl: $hamburger-pos-ver-xl;
+$toggle-hamburger-position-in-focus-horizontal-xl: $hamburger-pos-hor-xl;
 
 // Don't touch! Позиционирование
 $hamburger-position-vertical: ($toggle-hamburger-size-height - $hamburger-height) / 2;
 $hamburger-position-horizontal: ($toggle-hamburger-size-width - $hamburger-length) / 2;
+// MD
+$hamburger-position-vertical-md: ($toggle-hamburger-size-height-md - $hamburger-height-md) / 2;
+$hamburger-position-horizontal-md: ($toggle-hamburger-size-width-md - $hamburger-length-md) / 2;
+// XL
+$hamburger-position-vertical-xl: ($toggle-hamburger-size-height-xl - $hamburger-height-xl) / 2;
+$hamburger-position-horizontal-xl: ($toggle-hamburger-size-width-xl - $hamburger-length-xl) / 2;
 
 // Don't touch! Полоски гамбургера
 $hamburger-stripe-padding-2: 0 $stripe-2-pos 0 0 $hamburger-stripe-color;
@@ -104,6 +194,20 @@ $hamburger-stripe-color-on-hover-2: 0 $stripe-2-pos 0 0 $hamburger-stripe-color-
 $hamburger-stripe-color-on-hover-3: 0 $stripe-3-pos 0 0 $hamburger-stripe-color-on-hover;
 $hamburger-stripe-color-on-active-2: 0 $stripe-2-pos 0 0 $hamburger-stripe-color-on-active;
 $hamburger-stripe-color-on-active-3: 0 $stripe-3-pos 0 0 $hamburger-stripe-color-on-active;
+// MD
+$hamburger-stripe-padding-2-md: 0 $stripe-2-pos-md 0 0 $hamburger-stripe-color;
+$hamburger-stripe-padding-3-md: 0 $stripe-3-pos-md 0 0 $hamburger-stripe-color;
+$hamburger-stripe-color-on-hover-2-md: 0 $stripe-2-pos-md 0 0 $hamburger-stripe-color-on-hover;
+$hamburger-stripe-color-on-hover-3-md: 0 $stripe-3-pos-md 0 0 $hamburger-stripe-color-on-hover;
+$hamburger-stripe-color-on-active-2-md: 0 $stripe-2-pos-md 0 0 $hamburger-stripe-color-on-active;
+$hamburger-stripe-color-on-active-3-md: 0 $stripe-3-pos-md 0 0 $hamburger-stripe-color-on-active;
+// XL
+$hamburger-stripe-padding-2-xl: 0 $stripe-2-pos-xl 0 0 $hamburger-stripe-color;
+$hamburger-stripe-padding-3-xl: 0 $stripe-3-pos-xl 0 0 $hamburger-stripe-color;
+$hamburger-stripe-color-on-hover-2-xl: 0 $stripe-2-pos-xl 0 0 $hamburger-stripe-color-on-hover;
+$hamburger-stripe-color-on-hover-3-xl: 0 $stripe-3-pos-xl 0 0 $hamburger-stripe-color-on-hover;
+$hamburger-stripe-color-on-active-2-xl: 0 $stripe-2-pos-xl 0 0 $hamburger-stripe-color-on-active;
+$hamburger-stripe-color-on-active-3-xl: 0 $stripe-3-pos-xl 0 0 $hamburger-stripe-color-on-active;
 
 // Don't touch! Ширина и положение креста почти всегда будет равна ширине и положению гамбургера
 // Но на всякий @change
@@ -118,17 +222,21 @@ $item-padding: $item-text-position;
 $border-top-color-on-hover: $item-border-top;
 $border-top-color-on-active: $item-border-top;
 
-// TABLET styleguide
-$tablet-bg-default: #4c6783;
-$tablet-user-block-link-icon-position-vertical: 36px;
-$tablet-user-block-link-icon-position-horizontal: -13px;
-$tablet-item-padding: 30px 13px 20px 13px;
-// потому что основной паддинг 13px
-$tablet-icon-padding: 13px;
-// потому что основной паддинг 13px
-$tablet-selected-item-underline-height: 13px;
-$tablet-selected-item-underline-width: 3px;
-$tablet-selected-item-underline-position-vertical: 10px;
+// Just in case
+// MD
+$toggle-cross-size-width-md: $toggle-hamburger-size-width-md;
+$toggle-cross-position-in-focus-vertical-md: $hamburger-pos-ver-md;
+$toggle-cross-position-in-focus-horizontal-md: $hamburger-pos-hor-md;
+$item-padding-md: $item-text-position-md;
+$border-top-color-on-hover-md: $item-border-top-md;
+$border-top-color-on-active-md: $item-border-top-md;
+// XL
+$toggle-cross-size-width-xl: $toggle-hamburger-size-width-xl;
+$toggle-cross-position-in-focus-vertical-md: $hamburger-pos-ver-xl;
+$toggle-cross-position-in-focus-horizontal-md: $hamburger-pos-hor-xl;
+$item-padding-xl: $item-text-position-xl;
+$border-top-color-on-hover-xl: $item-border-top-xl;
+$border-top-color-on-active-xl: $item-border-top-xl;
 
 // Простая обводка у кнопки (гамбургера и креста)
 button:focus {
@@ -137,11 +245,35 @@ button:focus {
 
 .main-nav {
   position: absolute;
-  top: 60px;
-  // change.защита от потенциального глюка при открытии и закрытии меню. В данном макете это вызывало глюк
-  // min-height: 60px;
+  // Хорошо понятно на открытом меню. Регулирует высоту отображения меню в открытом состоянии
+  // Как правило прямопротивоположно значению $hamburger-pos-ver
+  top: $main-nav-ver-pos;
+  // Оставляет место для названия страницы ресурса. Например, "Главная".
 
-  background-color: $item-bg-default;
+  min-height: $main-nav-showen-on-closed;
+  // Есть 2 дизайна. 1) Растягивает main-nav на всю ширину экрана, с исключением максимум для лого
+  // Пример Barbershop
+  // 2) main-nav проще опустить ниже ибо в верхней строчке слишком много элементов: лого, кнопка формы или входа. Зато кнопку нужно оставить выше ибо на больших версиях есть как бы 2 строчки в header. Пример Никольский.
+
+  background-color: $main-nav-overlay-bg;
+  @media ($md) {
+    top: $main-nav-ver-pos-md;
+
+    min-height: $main-nav-showen-on-closed-md;
+
+    background-color: $main-nav-overlay-bg-md;
+  }
+  @media ($lg) {
+    // косяк с перепадом высоты в nav
+    // min-height: 59px;
+  }
+  @media ($xl) {
+    top: $main-nav-ver-pos-xl;
+
+    min-height: $main-nav-showen-on-closed-xl;
+
+    background-color: $main-nav-overlay-bg-xl;
+  }
 }
 
 .main-nav__toggle {
@@ -149,23 +281,28 @@ button:focus {
   position: absolute;
   top: $toggle-hamburger-position-in-focus-vertical;
   left: $toggle-hamburger-position-in-focus-horizontal;
-  // change. Нужен если есть полупрозрачный оверлей в закрытом виде и/или надпись, лого
+  // change. Нужен если есть полупрозрачный оверлей в закрытом виде и/или надпись, лого как в Pink
   // z-index: 2;
 
   display: block;
 
   padding: 0;
-  // Ширина и высота кнопки это зона ховера ибо сделать это паддингом как для кнопок-ссылок не получится; font-size убирает надпись
+  // Ширина и высота кнопки это зона ховера ибо сделать это паддингом как для кнопок-ссылок не получится;
 
   width: $toggle-hamburger-size-width;
   height: $toggle-hamburger-size-height;
+  // font-size убирает надпись
 
   font-size: 0;
   // У button есть дефолтная граница, фон и прочие. От них мы и избавляемся.Гамбургер и крестик всегда должным иметь прозрачный фоновый цвет.
 
   background-color: $hamburger-bg-default;
   border: none;
-  border-right: 1px solid $light-grey-four;
+  border-top: $hamburger-border-t;
+  border-right: $hamburger-border-r;
+  border-bottom: $hamburger-border-b;
+  border-left: $hamburger-border-l;
+  // остановилась здесь
   cursor: pointer;
 
   &:hover {
@@ -173,6 +310,13 @@ button:focus {
   }
   &:active {
     background-color: $hamburger-bg-on-active;
+  }
+  @media ($md) {
+    top: $toggle-hamburger-position-in-focus-vertical-md;
+    left: $toggle-hamburger-position-in-focus-horizontal-md;
+
+    width: $toggle-hamburger-size-width-md;
+    height: $toggle-hamburger-size-height-md;
   }
 }
 
@@ -189,18 +333,36 @@ button:focus {
   border-radius: $hamburger-stripe-radius;
   box-shadow: $hamburger-stripe-padding-2,
   $hamburger-stripe-padding-3;
+  @media ($md) {
+    top: $hamburger-position-vertical-md;
+    left: $hamburger-position-horizontal-md;
+
+    width: $hamburger-length-md;
+    height: $hamburger-stripe-width-md;
+
+    box-shadow: $hamburger-stripe-padding-2-md,
+    $hamburger-stripe-padding-3-md;
+  }
 }
 
 .main-nav--closed .main-nav__toggle:hover::before {
   background-color: $hamburger-stripe-color-on-hover;
   box-shadow: $hamburger-stripe-color-on-hover-2,
   $hamburger-stripe-color-on-hover-3;
+  @media ($md) {
+    box-shadow: $hamburger-stripe-color-on-hover-2-md,
+    $hamburger-stripe-color-on-hover-3-md;
+  }
 }
 
 .main-nav--closed .main-nav__toggle:active::before {
   background-color: $hamburger-stripe-color-on-active;
   box-shadow: $hamburger-stripe-color-on-active-2,
   $hamburger-stripe-color-on-active-3;
+  @media ($md) {
+    box-shadow: $hamburger-stripe-color-on-active-2-md,
+    $hamburger-stripe-color-on-active-3-md;
+  }
 }
 
 // .main-nav--opened - вешаешь на main-nav через js - появляется крестик
@@ -212,13 +374,13 @@ button:focus {
   // @change
   right: auto;
   left: $toggle-cross-position-in-focus-horizontal;
-
-  padding: 30px;
+  // idk what this does
+  // padding: 30px;
 
   width: $toggle-cross-size-width;
   // Особенности макета
 
-  background-color: $black-two;
+  background-color: $item-bg-default;
   border-right: none;
 
   &::before,
@@ -251,6 +413,21 @@ button:focus {
   &:active::after {
     background-color: $cross-stripe-color-on-active;
   }
+  @media ($md) {
+    top: $toggle-cross-position-in-focus-vertical-md;
+    left: $toggle-cross-position-in-focus-horizontal-md;
+
+    width: $toggle-cross-size-width-md;
+    &::before,
+    &::after {
+      content: "";
+      top: $cross-position-vertical-md;
+      left: $cross-position-horizontal-md;
+
+      width: $cross-stripe-length-md;
+      height: $cross-stripe-width-md;
+    }
+  }
 }
 
 .main-nav__list {
@@ -277,10 +454,12 @@ button:focus {
   line-height: $item-line-height;
   text-transform: $item-text-transform;
   text-decoration: $item-text-decoration;
+  white-space: nowrap;
 
   background-color: $item-bg-default;
   border-top: $item-border-top;
   border-bottom: $item-border-bottom;
+
   // Для иконки треугольника
   &::before {
     content: "";
@@ -298,6 +477,11 @@ button:focus {
       display: none;
     }
   }
+  &:hover {
+    &::before {
+      border-left-color: $item-text-color-hover;
+    }
+  }
 }
 
 .main-nav__item a[href],
@@ -313,6 +497,13 @@ button:focus {
     // color: $item-text-color-active;
     background-color: $item-bg-active;
     border-top: $border-top-color-on-active;
+  }
+}
+
+.main-nav__item--active a {
+  color: $item-text-color-hover;
+  &::before {
+    border-left-color: $item-text-color-hover;
   }
 }
 
@@ -349,9 +540,8 @@ button:focus {
   .main-nav {
     display: flex;
     // перестраховка на случай переполнения
-    flex-wrap: wrap;
+    // justify-content: space-between;
 
-    background-color: $tablet-bg-default;
     border-bottom: $item-border-bottom;
   }
 
@@ -361,26 +551,47 @@ button:focus {
 
   .main-nav__list {
     // собственно выстраивает элементы в строчку
-    display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
+    @media ($lg) {
+      display: flex;
+      // костыль
+
+      min-width: 100vw;
+    }
+  }
+
+  .main-nav__item {
+    // костыль
+    width: 100%;
   }
 
   .main-nav__item a {
     border: none;
+    @media ($lg) {
+      padding: 5.5px 5px 5.5px 30px;
+
+      text-align: center;
+    }
+    @media ($xl) {
+      padding-top: 5px;
+      padding-right: 5px;
+      padding-bottom: 5px;
+      padding-left: 20px;
+    }
   }
 
   .main-nav__item a[href],
   .main-nav__user-block a[href] {
-    padding: $tablet-item-padding;
+    // padding: $tablet-item-padding;
     &:hover {
       color: $item-text-color-hover;
 
-      background-color: $tablet-bg-default;
+      // background-color: $tablet-bg-default;
     }
     &:active {
       color: $item-text-color-default;
+      // background-color: $tablet-bg-default;
 
-      background-color: $tablet-bg-default;
       opacity: 0.3;
     }
   }
@@ -390,16 +601,17 @@ button:focus {
   // }
 
   .main-nav__item--active a {
+    color: $item-text-color-hover;
     &:hover {
       color: $item-text-color-default;
 
-      background-color: $tablet-bg-default;
+      // background-color: $tablet-bg-default;
     }
     &:active {
       color: $item-text-color-default;
-
-      background-color: $tablet-bg-default;
+      // background-color: $tablet-bg-default;
       // change. Если у дефолтных пунктов меню есть opacity в active
+
       opacity: 1;
     }
   }

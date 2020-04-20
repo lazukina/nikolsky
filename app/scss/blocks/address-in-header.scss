@@ -1,5 +1,16 @@
 .address-in-header {
-  padding-top: 26px;
+  padding-top: 4px;
+  &::after {
+    content: "";
+    position: absolute;
+    top: -23px;
+    left: -51px;
+
+    width: 1px;
+    height: $page-header-mh;
+
+    border-left: 1px solid $light-grey-four;
+  }
   &__title {
     position: relative;
 
@@ -21,8 +32,15 @@
     }
   }
   &__text {
-    color: $white;
-    font-size: rem(13);
+    color: $black-four;
+    font-size: rem(15);
     line-height: rem(16);
   }
-}
+  @media ($xl) {
+    &::after {
+      content: "";
+      // top: -25px;
+      left: -73px;
+    }
+  }
+}
