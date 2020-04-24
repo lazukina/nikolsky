@@ -1,7 +1,7 @@
 .phone {
   margin-top: 25px;
   margin-bottom: 22px;
-
+  padding-left: 5px;
   &__title {
     position: relative;
 
@@ -32,4 +32,4 @@
       color: $black-three;
     }
   }
-}
+}

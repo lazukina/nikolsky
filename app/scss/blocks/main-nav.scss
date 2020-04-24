@@ -66,6 +66,7 @@ $item-font-weight: normal;
 $item-text-align: left;
 $item-text-transform: none;
 $item-text-decoration: none;
+// @nav
 $item-bg-default: $black-two;
 $item-text-color-default: $white;
 
@@ -75,6 +76,7 @@ $item-text-color-hover: $sick-green;
 $item-text-color-active: $apple;
 
 // Если пункты меню будут менять фон (на hover & active)
+// @nav
 $item-bg-hover: none;
 $item-bg-active: none;
 
@@ -107,7 +109,7 @@ $item-text-decoration-md: $item-text-decoration;
 $item-bg-default-md: $item-bg-default;
 $item-text-color-default-md: $item-text-color-default;
 $main-nav-overlay-bg-md: $item-bg-default-md;
-$item-text-position-md: $item-text-position;
+$item-text-position-md: 5.5px 5px 5.5px 30px;
 $item-border-top-md: $item-border-top;
 $item-border-bottom-md: $item-border-bottom;
 
@@ -126,14 +128,15 @@ $cross-position-vertical-xl: $cross-position-vertical-md;
 $cross-position-horizontal-xl: $cross-position-horizontal-md;
 $item-font-size-xl: $item-font-size-md;
 $item-line-height-xl: $item-line-height-md;
-$item-font-weight-xl: $item-font-weight-md;
+$item-font-weight-xl: bold;
 $item-text-align-xl: $item-text-align-md;
 $item-text-transform-xl: $item-text-transform-md;
 $item-text-decoration-xl: $item-text-decoration-md;
 $item-bg-default-xl: $item-bg-default-md;
 $item-text-color-default-xl: $item-text-color-default-md;
 $main-nav-overlay-bg-xl: $item-bg-default-md;
-$item-text-position-xl: $item-text-position-md;
+// @change for snippet
+$item-text-position-xl: 5px 5px 5px 20px;
 $item-border-top-xl: $item-border-top-md;
 $item-border-bottom-xl: $item-border-bottom-md;
 
@@ -219,6 +222,7 @@ $toggle-cross-position-in-focus-horizontal: $hamburger-pos-hor;
 
 // Для удобства
 $item-padding: $item-text-position;
+// NB! Плохая практика - для цвета использовать переменную в которой есть размеры
 $border-top-color-on-hover: $item-border-top;
 $border-top-color-on-active: $item-border-top;
 
@@ -251,6 +255,8 @@ button:focus {
   // Оставляет место для названия страницы ресурса. Например, "Главная".
 
   min-height: $main-nav-showen-on-closed;
+
+  white-space: nowrap;
   // Есть 2 дизайна. 1) Растягивает main-nav на всю ширину экрана, с исключением максимум для лого
   // Пример Barbershop
   // 2) main-nav проще опустить ниже ибо в верхней строчке слишком много элементов: лого, кнопка формы или входа. Зато кнопку нужно оставить выше ибо на больших версиях есть как бы 2 строчки в header. Пример Никольский.
@@ -440,7 +446,8 @@ button:focus {
   }
 }
 
-.main-nav__item a {
+.main-nav__item a,
+.main-nav__item--active a {
   position: relative;
 
   display: block;
@@ -454,7 +461,8 @@ button:focus {
   line-height: $item-line-height;
   text-transform: $item-text-transform;
   text-decoration: $item-text-decoration;
-  white-space: nowrap;
+  // лучше сразу прописать в ul
+  // white-space: nowrap;
 
   background-color: $item-bg-default;
   border-top: $item-border-top;
@@ -477,26 +485,35 @@ button:focus {
       display: none;
     }
   }
+  &:visited {
+    opacity: 0.5;
+  }
   &:hover {
     &::before {
       border-left-color: $item-text-color-hover;
     }
   }
+  &:active {
+    color: $item-text-color-active;
+  }
 }
 
 .main-nav__item a[href],
 .main-nav__user-block a[href] {
+  &:visited {
+    opacity: 0.5;
+  }
   &:hover {
     color: $item-text-color-hover;
 
-    background-color: $item-bg-hover;
-    border-top: $border-top-color-on-hover;
+    // background-color: $item-bg-hover;
+    // border-top: $border-top-color-on-hover;
   }
   &:active {
     // change. Если цвет текста будет меняться. Если нет, то color можно удалить
-    // color: $item-text-color-active;
-    background-color: $item-bg-active;
-    border-top: $border-top-color-on-active;
+    color: $item-text-color-active;
+    // background-color: $item-bg-active;
+    // border-top: $border-top-color-on-active;
   }
 }
 
@@ -563,36 +580,46 @@ button:focus {
   .main-nav__item {
     // костыль
     width: 100%;
+    @media ($xl) {
+      &:first-child {
+        padding-left: 5%;
+      }
+      &:last-child {
+        padding-right: 6%;
+      }
+    }
   }
 
-  .main-nav__item a {
+  .main-nav__item a,
+  .main-nav__item--active a {
     border: none;
     @media ($lg) {
-      padding: 5.5px 5px 5.5px 30px;
+      padding: $item-padding-md;
 
       text-align: center;
     }
     @media ($xl) {
-      padding-top: 5px;
-      padding-right: 5px;
-      padding-bottom: 5px;
-      padding-left: 20px;
+      padding: $item-padding-xl;
+
+      font-weight: $item-font-weight-xl;
     }
   }
 
   .main-nav__item a[href],
   .main-nav__user-block a[href] {
     // padding: $tablet-item-padding;
+    &:visited {
+      opacity: 0.5;
+    }
     &:hover {
       color: $item-text-color-hover;
 
       // background-color: $tablet-bg-default;
     }
     &:active {
-      color: $item-text-color-default;
+      color: $item-text-color-active;
       // background-color: $tablet-bg-default;
-
-      opacity: 0.3;
+      // @nav
     }
   }
 
@@ -600,19 +627,39 @@ button:focus {
   //   margin-top: $tablet-logo-position;
   // }
 
+  // change work into snippet
   .main-nav__item--active a {
-    color: $item-text-color-hover;
-    &:hover {
-      color: $item-text-color-default;
+    color: $item-text-color-active;
+    @media ($lg) {
+      padding: $item-padding-md;
 
+      text-align: center;
+    }
+    @media ($xl) {
+      padding: $item-padding-xl;
+    }
+    &:visited {
+      opacity: 0.5;
+    }
+    &:hover {
+      color: $item-text-color-active;
+
+      cursor: default;
       // background-color: $tablet-bg-default;
     }
     &:active {
-      color: $item-text-color-default;
+      color: $item-text-color-active;
       // background-color: $tablet-bg-default;
       // change. Если у дефолтных пунктов меню есть opacity в active
 
-      opacity: 1;
+      // @nav
+      // opacity: 1;
+    }
+  }
+
+  .main-nav__item--active:first-child {
+    @media ($xl) {
+      padding-left: 10%;
     }
   }
 

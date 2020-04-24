@@ -16,8 +16,10 @@ a {
   color: $link-text-color-default;
   text-decoration: $link-td-default;
   &:visited {
-    color: $link-text-color-default;
+    color: $link-text-color-active;
     text-decoration: $link-td-hover;
+
+    opacity: 0.5;
   }
   &:focus {
     color: $link-text-color-hover;
@@ -39,4 +41,4 @@ ul {
   padding: 0;
 
   list-style: none;
-}
+}

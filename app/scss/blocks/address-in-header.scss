@@ -39,8 +39,7 @@
   @media ($xl) {
     &::after {
       content: "";
-      // top: -25px;
-      left: -73px;
+      left: -25%;
     }
   }
 }

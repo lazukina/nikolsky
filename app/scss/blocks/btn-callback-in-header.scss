@@ -76,8 +76,9 @@
     cursor: pointer;
     // Анимация
     // transition: all 0.3s ease 0s;
+    // перенесла в hover дабы не прыгала кнопка при переходе от версии к версии
+    // transition: all 2s;
 
-    transition: all 2s;
     // Тень
     // box-shadow: $btn-box-shadow;
     // text-shadow: $btn-text-shadow;
@@ -88,6 +89,7 @@
     &:focus,
     &:visited,
     &:active {
+      transition: all 2s;
       color: $btn-text-color-default;
       text-decoration: none;
       //Расскомментировать если кнопка вешается на <button>
