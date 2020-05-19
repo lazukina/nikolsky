@@ -53,22 +53,22 @@
             </ul>
             <!-- был d-none дабы убрать горизонтальный скролл на lg -->
             <!-- <div class="container"> -->
-              <div class="row justify-content-left">
-                <ul class="d-lg-none col-xs-10 offset-6 address">
+              <div class="row justify-content-left mr-0 ml-0">
+                <ul class="d-lg-none col-xs-5 offset-6 address">
                   <li class="address__title">Адрес</li>
                   <li class="address__text">г. Никольск, ул. Комсомольская 27</li>
                 </ul>
               </div>
-              <div class="row justify-content-left">
-                <ul class="d-lg-none col-xs-10 offset-6 phone">
+              <div class="row justify-content-left mr-0 ml-0">
+                <ul class="d-lg-none col-xs-5 offset-6 phone">
                   <li class="phone__title">Телефон</li>
                   <li class="phone__link">
                     <a href="tel: +893741833-33">8 ( 937 ) 418-33-33</a>
                   </li>
                 </ul>
               </div>
-              <div class="row justify-content-center">
-                <a href="#" class="d-lg-none col-xs-10 btn-callback-in-nav">Заказать звонок</a>
+              <div class="row justify-content-center mr-0 ml-0">
+                <a href="#" class="d-lg-none col-xs-1 btn-callback-in-nav">Заказать звонок</a>
               </div>
             <!-- </div> -->
         </nav>
@@ -92,10 +92,107 @@
   </header>
 
   <main class="page-main">
+    <!-- Два слайдера. С разным количеством дефолтных слайдов (item), анимацией и ее отсутствием. Замкнутые и нет. На флексе и стандартные и т.п. Плюс дополнительные фичи: кнопка Развернуть и счетчик слайдов. -->
+
+    <section>
+      <div class="wrap-slider-1">
+
+        <div id="slider-1" class="owl-carousel owl-theme item">
+
+          <div class="item__slide">
+            <div class="item__info">
+              <h3 class="item__heading">Хвойный брус со скидкой <span class="item__heading--discount-color">30%</span></h3>
+              <p class="item__text">Только в сентябре при покупке от 20м<sup>2</sup> леса вы получите скидку на всю партию от 10 до 30%</p>
+              <a type="button" href="#" class="item__btn">Заказать</a>
+            </div>
+          </div>
+
+          <div class="item__slide">
+            <div class="item__info">
+              <h3 class="item__heading">Ламели со скидкой <span class="item__heading--discount-color">50%</span></h3>
+              <p class="item__text">Только в период самоизоляции при покупке от 100м<sup>2</sup> леса вы получите скидку на всю партию от 0 до 1%</p>
+            </div>
+          </div>
+
+          <div class="item__slide">
+            <div class="item__info">
+              <h3 class="item__heading">ДСП со скидкой</h3>
+              <p class="item__text">Только в сентябре при покупке от 20м<sup>2</sup> леса вы получите скидку на всю партию от 10 до 30%</p>
+              <a type="button" href="#" class="item__btn">Заказать</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <section>
+      <div class="wrap-slider-2">
+        <div id="slider-2" class="owl-carousel owl-theme advantages">
+
+          <div class="advantages__slide">
+            <div class="advantages__info">
+              <h2 class="advantages__title advantages__title--consultation">Бесплатная консультация</h2>
+            </div>
+          </div>
+
+          <div class="advantages__slide">
+            <div class="advantages__info">
+              <h2 class="advantages__title advantages__title--quality">Высокое качество</h2>
+            </div>
+          </div>
+
+          <div class="advantages__slide">
+            <div class="advantages__info">
+              <h2 class="advantages__title advantages__title--discount">Скидки постоянным покупателям</h2>
+            </div>
+          </div>
+
+          <div class="advantages__slide">
+            <div class="advantages__info">
+              <h2 class="advantages__title advantages__title--eco">Экологически чистый товар</h2>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="my-slider">
+        <div class="advantages__slide">
+          <div class="advantages__info">
+            <h2 class="advantages__title advantages__title--consultation">Бесплатная консультация</h2>
+          </div>
+        </div>
+
+        <div class="advantages__slide">
+          <div class="advantages__info">
+            <h2 class="advantages__title advantages__title--quality">Высокое качество</h2>
+          </div>
+        </div>
+
+        <div class="advantages__slide">
+          <div class="advantages__info">
+            <h2 class="advantages__title advantages__title--discount">Скидки постоянным покупателям</h2>
+          </div>
+        </div>
+
+        <div class="advantages__slide">
+          <div class="advantages__info">
+            <h2 class="advantages__title advantages__title--eco">Экологически чистый товар</h2>
+          </div>
+        </div>
+
+      </div>
+    </section>
 
   </main>
 
-  <footer class="page-footer"></footer>
+  <footer class="page-footer">
+
+  </footer>
 
   <script type="text/javascript" src="js/script.min.js"></script>
 

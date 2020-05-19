@@ -1,0 +1,773 @@
+// slider
+$slider-margin: 0 0 0;
+// $slider-shadow: 0 6px 9.7px 0.3px rgba(0, 0, 0, 0.14);
+$slider-shadow: none;
+// slide
+$slide-bg: $body-bg;
+// info container
+// @change зачем?
+// $info-container-size: 1 1 400px;
+$info-container-size: 1 1 100%;
+$info-container-margin: 0 27px;
+// info
+$info-header-margin: 56px 25px 11px 25px;
+$info-p-margin: 0 0 26px 0;
+$info-img-container-size: 1 0 auto;
+$info-img-container-min-height: 430px;
+$info-img-container-bg: yellow;
+// owl точки
+$owl-space-between-dots: 7px 5px;
+$owl-dots-position-vertical: 10px;
+$owl-dot-size: 17px;
+
+$owl-dot-color-default: transparent;
+$owl-dot-color-hover: $white;
+$owl-dot-color-active: $owl-dot-color-hover;
+
+$owl-dots-ui-zone: 50px;
+$owl-dots-transition: all 0.5s ease;
+// owl стрелки вся кнопка
+$owl-stage-margin: 20px 0;
+$owl-arrows-btn-position-vertical: -5px;
+$owl-arrows-btn-size-width: 40px;
+$owl-arrows-btn-size-height: 430px;
+// owl положение стрелок относительно слайдера
+$owl-arrows-btn-left-position-horizontal: -45px;
+$owl-arrows-btn-right-position-horizontal: -45px;
+// owl сами стрелки
+$owl-arrows-size: em(30px);
+$owl-arrows-bg-default: transparent;
+$owl-arrows-bg-hover: red;
+$owl-arrows-text-color-default: black;
+$owl-arrows-text-color-hover: #ffffff;
+$owl-arrows-disabled-op: 0.4;
+$owl-arrows-disabled-bg: $owl-arrows-bg-default;
+$owl-arrows-disabled-text-color: $owl-arrows-text-color-default;
+// плавность перехода
+$owl-arrows-transition: all 0.3s ease;
+
+// Добавляй новые свойства согласно порядку в html. Также избавься от не нужных в твоем слайдере классов.
+
+.item {
+  margin: $slider-margin;
+
+  box-shadow: $slider-shadow;
+}
+
+.item__slide {
+  position: relative;
+  z-index: index($elements, slider);
+
+  display: flex;
+  // @костыль ибо видно 1px от слайда слева ибо margin, который задается в js на самом деле margin-right
+  // @change мне не удалось воспроизвести ошибку, требующую margin-left: -1px;
+
+  // margin-left: -1px;
+  // @change костыль из-за высоты содержимого
+  // @change добавить @var
+  min-height: 360px;
+
+  &::before {
+    content: "";
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    background: $body-bg url(../img/index-ct-1-m.jpg) no-repeat;
+    background-size: cover;
+    filter: brightness(55%);
+  }
+  @media ($md) {
+    min-height: 313px;
+    &::before {
+      background: $body-bg url(../img/index-ct-1-t.jpg) no-repeat;
+      background-size: cover;
+      filter: brightness(80%);
+    }
+  }
+  @media ($xl) {
+    margin-top: 60px;
+    min-height: 400px;
+    &::before {
+      background: $body-bg url(../img/index-ct-1-d.jpg) no-repeat;
+      background-size: cover;
+    }
+  }
+}
+
+.item__info {
+  z-index: index($elements, project-overlay);
+
+  flex: $info-container-size;
+
+  margin: $info-container-margin;
+
+  text-align: center;
+  @media ($md) {
+    text-align: left;
+    max-width: 33%;
+    margin-top: 85px;
+    margin-left: 79px;
+  }
+  @media ($lg) {
+    max-width: 45%;
+    margin-left: 30px;
+  }
+  @media ($xl) {
+    max-width: 33%;
+    // margin-top: 110px;
+    margin-top: 90px;
+    margin-left: 100px;
+  }
+}
+
+.item__heading {
+  margin: 54px 24px 12px 24px;
+  color: $white;
+  font-size: rem(26);
+  font-weight: bold;
+  line-height: rem(28);
+  &--discount-color {
+    color: $sick-green;
+  }
+  @media ($sm) {
+    margin-top: 20%;
+  }
+  @media ($md) {
+    margin: 0;
+    margin-right: 20px;
+    font-size: rem(28);
+    line-height: rem(30);
+  }
+  @media ($xl) {
+    font-size: rem(36);
+    line-height: rem(38);
+    margin-right: 120px;
+    margin-bottom: 25px;
+  }
+}
+
+.item__text {
+  margin: 0 0 25px 0;
+  color: $white;
+  font-size: rem(14);
+  line-height: rem(18);
+  @media ($sm) {
+    margin: 0 55px 25px 55px;
+  }
+  @media ($md) {
+    font-size: rem(11);
+    line-height: rem(14);
+    margin: 8px 0 13px 0;
+  }
+  @media ($lg) {
+    margin-right: 100px;
+  }
+  @media ($xl) {
+    font-size: rem(14);
+    line-height: rem(18);
+    margin-bottom: 25px;
+  }
+}
+
+.item__btn {
+  $btn-bg-default: transparent;
+  $btn-bg-hover: rgba($apple, .7);
+  $btn-bg-active: rgba($apple, .7);
+
+  $btn-text-color-default: $sick-green-two;
+  $btn-text-color-hover: $white;
+  $btn-text-color-active: rgba(white, .6);
+
+  $btn-padding: 5px 37px;
+  $btn-font-weight: bold;
+  $btn-font-size: rem(14);
+  $btn-text-transform: none;
+
+  $btn-border: 2px solid $apple;
+  $btn-border-radius: 6px;
+  $btn-box-shadow: inset 0 3px 0 rgba(0, 1, 1, 0.1);
+
+  display: inline-block;
+  padding: $btn-padding;
+  color: $btn-text-color-default;
+  background-color: $btn-bg-default;
+
+  font-weight: $btn-font-weight;
+  font-size: $btn-font-size;
+
+  text-align: center;
+  text-transform: $btn-text-transform;
+  text-decoration: none;
+  border: $btn-border;
+  border-radius: $btn-border-radius;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  &:hover,
+  &:focus,
+  &:visited,
+  &:active {
+    color: $btn-text-color-default;
+    text-decoration: none;
+    //Расскомментировать если кнопка вешается на <button>
+    // outline: none;
+  }
+  &:hover {
+    color: $btn-text-color-hover;
+    background-color: $btn-bg-hover;
+  }
+  &:active {
+    color: $btn-text-color-active;
+    text-decoration: none;
+    background-color: $btn-bg-active;
+    // box-shadow: $btn-box-shadow;
+  }
+  @media ($md) {
+    font-size: rem(11);
+    padding: 4px 27px;
+    border-radius: 5px;
+  }
+  @media ($xl) {
+    font-size: rem(14);
+    padding: 4px 36px;
+  }
+}
+
+// Кастомизация OWL
+
+// @попытка 1
+// .owl-stage {
+//  display: flex;
+// }
+// .owl-item {
+//  display: flex;
+//  flex: 1;
+// }
+// @проблема - если текста очень мало и он не занял всей ширины, то не сработает.
+
+// @try 2
+// .owl-carousel .owl-stage {
+//     display: flex;
+// }
+//
+// .owl-carousel .owl-item img {
+//     width: auto;
+//     height: 100%;
+// }
+
+
+// ТОЧКИ
+// затаскивание точек на слайд
+.owl-dots {
+  // центровка элемента
+  position: absolute;
+  right: 0;
+  // центровка элемента закончена
+  bottom: $owl-dots-position-vertical;
+  left: 0;
+
+  margin: 0 auto;
+  // дефолтное положение
+
+  text-align: center;
+  @media ($md) {
+    bottom: 10px;
+  }
+}
+
+// Кастомизация точек
+.item.owl-theme .owl-dots .owl-dot span {
+  display: block;
+  // расстояние между точками
+
+  margin: $owl-space-between-dots;
+  // размер точек
+
+  width: $owl-dot-size;
+  height: $owl-dot-size;
+  // дефолтный цвет точек
+
+  background-color: $owl-dot-color-default;
+  // обычно не нужно, но вдруг точкам будет нужна обводка
+  border: 2px solid $owl-dot-color-active;
+  // дабы точки были круглыми
+  border-radius: 50%;
+  // плавное изменение дефолтных свойств на активное
+
+  transition: $owl-dots-transition;
+  @media ($md) {
+    width: 12px;
+    height: 12px;
+    margin: 5px 3px;
+  }
+}
+
+//реалистичная версия активной точки и ховера
+.item.owl-theme .owl-dots .owl-dot.active span,
+.item.owl-theme .owl-dots .owl-dot:hover span {
+  background-color: $owl-dot-color-hover;
+}
+
+// задав цветную заглушку можно четко увидеть размер точки для юзера
+.owl-carousel button.owl-dot {
+  // background-color: black;
+  // увеличение зоны точки, без увеличения ее размеров или расстояния между точками
+  height: $owl-dots-ui-zone;
+}
+
+// СТРЕЛКИ
+// Затаскивание стрелок по центру от слайда по обоим краям
+.owl-theme .owl-nav [class*=owl-] {
+  position: relative;
+  bottom: $owl-arrows-btn-position-vertical;
+
+  width: $owl-arrows-btn-size-width;
+  height: $owl-arrows-btn-size-height;
+  &:hover {
+    color: $owl-arrows-text-color-hover;
+
+    background-color: $owl-arrows-bg-hover;
+
+    transition: $owl-arrows-transition;
+  }
+}
+
+.owl-theme .owl-nav button.owl-next,
+.owl-theme .owl-nav button.owl-prev {
+  position: absolute;
+
+  color: $owl-arrows-text-color-default;
+  font-size: $owl-arrows-size;
+
+  background-color: $owl-arrows-bg-default;
+  &::before,
+  &::after {
+    // нужно, если придется двигать стрелку внутри кнопки по вертикали
+    display: block;
+    // если твои кастомные стрелки будут из fontAwesome
+
+    font-family: "fontAwesome";
+    // положение стрелки внутри кнопки
+    // margin: 0 0 0 0;
+  }
+  &.disabled {
+    cursor: default;
+    opacity: $owl-arrows-disabled-op;
+    &:hover {
+      color: $owl-arrows-disabled-text-color;
+
+      background: $owl-arrows-disabled-bg;
+    }
+  }
+}
+
+.owl-prev {
+  // положение всей кнопки по горизонтали
+  left: $owl-arrows-btn-left-position-horizontal;
+  &::before {
+    content: "e900";
+  }
+}
+
+.owl-next {
+  // положение всей кнопки по горизонтали
+  right: $owl-arrows-btn-right-position-horizontal;
+  &::after {
+    content: "e901";
+  }
+}
+
+// reset outline происходящий на фокусе по большому счету лишний,
+// если в variables уже используется *:focus {outline:none !important;}
+// .owl-next,
+// .owl-prev,
+// .owl-dot {
+//   outline: 0;
+// }
+
+// slider
+$slider-2-margin: 0 0 0;
+$slider-2-shadow: none;
+// slide
+$slide-2-bg: $body-bg;
+// info container
+// @change зачем?
+$info-2-container-size: 1 1 100%;
+$info-2-container-margin: 121px 0 0;
+// info
+$info-2-title-margin: 56px 25px 11px 25px;
+$info-p-margin: 0 0 26px 0;
+$info-img-container-size: 1 0 auto;
+$info-img-container-min-height: 430px;
+$info-img-container-bg: yellow;
+// owl точки
+$owl-space-between-dots: 7px 5px;
+$owl-2-dots-position-vertical: 35px;
+$owl-dot-size: 17px;
+
+$owl-2-dot-color-default: transparent;
+$owl-2-dot-color-hover: $sick-green;
+$owl-2-dot-color-active: $owl-2-dot-color-hover;
+
+$owl-dots-ui-zone: 50px;
+$owl-dots-transition: all 0.5s ease;
+// owl стрелки вся кнопка
+$owl-stage-margin: 20px 0;
+$owl-arrows-btn-position-vertical: -5px;
+$owl-arrows-btn-size-width: 40px;
+$owl-arrows-btn-size-height: 430px;
+// owl положение стрелок относительно слайдера
+$owl-arrows-btn-left-position-horizontal: -45px;
+$owl-arrows-btn-right-position-horizontal: -45px;
+// owl сами стрелки
+$owl-arrows-size: em(30px);
+$owl-arrows-bg-default: transparent;
+$owl-arrows-bg-hover: red;
+$owl-arrows-text-color-default: black;
+$owl-arrows-text-color-hover: #ffffff;
+$owl-arrows-disabled-op: 0.4;
+$owl-arrows-disabled-bg: $owl-arrows-bg-default;
+$owl-arrows-disabled-text-color: $owl-arrows-text-color-default;
+// плавность перехода
+$owl-arrows-transition: all 0.3s ease;
+
+.advantages {
+  margin: $slider-2-margin;
+
+  box-shadow: $slider-2-shadow;
+  @media ($md) {
+    display: flex;
+  }
+}
+
+.advantages .owl-stage {
+  @media ($md) {
+    display: flex;
+  }
+}
+
+.advantages__slide {
+  z-index: index($elements, slider);
+
+  display: flex;
+  min-height: 260px;
+  background-color: $body-bg;
+  @media ($md) {
+    margin: 0 42px;
+  }
+}
+
+.advantages__info {
+  z-index: index($elements, project-overlay);
+
+  flex: $info-2-container-size;
+
+  margin: $info-2-container-margin;
+
+  text-align: center;
+}
+
+.advantages__title {
+  margin-top: 5px;
+  text-align: center;
+  color: $black-two;
+  font-size: rem(14);
+  line-height: rem(16);
+  font-weight: normal;
+  @media ($sm) {
+    margin-top: 19px;
+    padding: 0 73px;
+    font-size: rem(15);
+    line-height: rem(18);
+  }
+  @media ($md) {
+    font-size: rem(15);
+    line-height: rem(18);
+    margin: 0;
+    padding: 0;
+  }
+  @media ($xl) {
+    padding: 0 55px;
+  }
+}
+
+.advantages__title--consultation {
+  margin-left: 16px;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 115%;
+    left: 28%;
+
+    width: 65px;
+    height: 70px;
+
+    background: $transparent url(../img/icons/i-consultation.png) no-repeat 0px 0px;
+  }
+  @media ($sm) {
+    &::before {
+      bottom: 130%;
+      left: 39%;
+    }
+  }
+  @media ($md) {
+    &::before {
+      left: 20%;
+    }
+  }
+  @media ($lg) {
+    &::before {
+      left: 30%;
+    }
+  }
+  @media ($xl) {
+    &::before {
+      left: 35%;
+    }
+  }
+}
+
+.advantages__title--quality {
+  padding: 0 30px;
+  margin-right: 20px;
+  margin-left: -6px;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 129%;
+    left: 27%;
+
+    width: 70px;
+    height: 63px;
+
+    background: $transparent url(../img/icons/i-quality.png) no-repeat 0px 0px;
+  }
+  @media ($sm) {
+    &::before {
+      bottom: 138%;
+      left: 37%;
+    }
+  }
+  @media ($md) {
+    &::before {
+      left: 0%;
+    }
+  }
+  @media ($lg) {
+    &::before {
+      left: 17%;
+    }
+  }
+  @media ($xl) {
+    &::before {
+      left: 30%;
+    }
+  }
+}
+
+.advantages__title--discount {
+  padding: 0 30px;
+  margin-right: 20px;
+  margin-left: -6px;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 129%;
+    left: 27%;
+
+    width: 70px;
+    height: 70px;
+
+    background: $transparent url(../img/icons/i-discount.png) no-repeat 0px 0px;
+  }
+  @media ($sm) {
+    padding: 0 66px;
+    &::before {
+      bottom: 131%;
+      left: 38%;
+    }
+  }
+  @media ($md) {
+    &::before {
+      bottom: 129%;
+      left: 26%;
+    }
+  }
+  @media ($lg) {
+    &::before {
+      left: 32%;
+    }
+  }
+  @media ($xl) {
+    &::before {
+      left: 36%;
+    }
+  }
+}
+
+.advantages__title--eco {
+  padding: 0 30px;
+  margin-right: 20px;
+  margin-left: -6px;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 129%;
+    left: 27%;
+
+    width: 70px;
+    height: 68px;
+
+    background: $transparent url(../img/icons/i-eco.png) no-repeat 0px 0px;
+  }
+  @media ($sm) {
+    &::before {
+      bottom: 137%;
+      left: 38%;
+    }
+  }
+  @media ($md) {
+    &::before {
+      bottom: 132%;
+      left: 20%;
+    }
+  }
+  @media ($lg) {
+    &::before {
+      left: 30%;
+    }
+  }
+  @media ($xl) {
+    &::before {
+      left: 35%;
+    }
+  }
+}
+
+// Кастомизация OWL
+
+// ТОЧКИ
+// затаскивание точек на слайд
+.advantages .owl-dots {
+  // центровка элемента
+  position: absolute;
+  right: 0;
+  // центровка элемента закончена
+  bottom: $owl-2-dots-position-vertical;
+  left: 0;
+
+  margin: 0 auto;
+  // дефолтное положение
+
+  text-align: center;
+  @media ($md) {
+    bottom: 10px;
+  }
+}
+
+// Кастомизация точек
+.advantages.owl-theme .owl-dots .owl-dot span {
+  display: block;
+  // расстояние между точками
+
+  margin: $owl-space-between-dots;
+  // размер точек
+
+  width: $owl-dot-size;
+  height: $owl-dot-size;
+  // дефолтный цвет точек
+
+  background-color: $owl-2-dot-color-default;
+  // обычно не нужно, но вдруг точкам будет нужна обводка
+  border: 2px solid $owl-2-dot-color-hover;
+  // дабы точки были круглыми
+  border-radius: 50%;
+  // плавное изменение дефолтных свойств на активное
+
+  transition: $owl-dots-transition;
+  @media ($md) {
+    width: 12px;
+    height: 12px;
+    margin: 5px 3px;
+  }
+}
+
+//реалистичная версия активной точки и ховера
+.advantages.owl-theme .owl-dots .owl-dot.active span,
+.advantages.owl-theme .owl-dots .owl-dot:hover span {
+  background-color: $owl-2-dot-color-hover;
+}
+
+// задав цветную заглушку можно четко увидеть размер точки для юзера
+.advantages.owl-carousel button.owl-dot {
+  // background-color: black;
+  // увеличение зоны точки, без увеличения ее размеров или расстояния между точками
+  height: $owl-dots-ui-zone;
+}
+
+// СТРЕЛКИ
+// Затаскивание стрелок по центру от слайда по обоим краям
+.owl-theme .owl-nav [class*=owl-] {
+  position: relative;
+  bottom: $owl-arrows-btn-position-vertical;
+
+  width: $owl-arrows-btn-size-width;
+  height: $owl-arrows-btn-size-height;
+  &:hover {
+    color: $owl-arrows-text-color-hover;
+
+    background-color: $owl-arrows-bg-hover;
+
+    transition: $owl-arrows-transition;
+  }
+}
+
+.owl-theme .owl-nav button.owl-next,
+.owl-theme .owl-nav button.owl-prev {
+  position: absolute;
+
+  color: $owl-arrows-text-color-default;
+  font-size: $owl-arrows-size;
+
+  background-color: $owl-arrows-bg-default;
+  &::before,
+  &::after {
+    // нужно, если придется двигать стрелку внутри кнопки по вертикали
+    display: block;
+    // если твои кастомные стрелки будут из fontAwesome
+
+    font-family: "fontAwesome";
+    // положение стрелки внутри кнопки
+    // margin: 0 0 0 0;
+  }
+  &.disabled {
+    cursor: default;
+    opacity: $owl-arrows-disabled-op;
+    &:hover {
+      color: $owl-arrows-disabled-text-color;
+
+      background: $owl-arrows-disabled-bg;
+    }
+  }
+}
+
+.owl-prev {
+  // положение всей кнопки по горизонтали
+  left: $owl-arrows-btn-left-position-horizontal;
+  &::before {
+    content: "e900";
+  }
+}
+
+.owl-next {
+  // положение всей кнопки по горизонтали
+  right: $owl-arrows-btn-right-position-horizontal;
+  &::after {
+    content: "e901";
+  }
+}

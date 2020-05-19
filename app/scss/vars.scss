@@ -73,8 +73,7 @@ $browser-context: 16; // Default не менять
 }
 
 // z-index
-$elements: project-overlay, modals, success;
-
+$elements: project-overlay, slider, main-nav, modals, success;
 // Пример записи
 // .project-cover {
 //    z-index: index($elements, project-overlay);
